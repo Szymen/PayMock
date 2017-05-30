@@ -21,5 +21,8 @@ from PayMock import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', views.index)
+    url(r'^pay', views.payU),
+    url(r'^index', views.index),
+    url(r'^own', views.payment_agreement)
+
 ]
