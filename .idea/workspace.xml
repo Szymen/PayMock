@@ -2,70 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b1d116f-f142-4403-a3fe-5c8d4ea1a8b5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/footLogo2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/footLogo2Transparent.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/footLogo3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/footLogo3Transparent.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/footLogo4.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/footLogo4Transparent.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/ico-info-help.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/loglock_small.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/moreDown.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/moreUp.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/off-ab.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/off-as.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/off-b.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/off-bnx.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/off-bo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/off-g.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/off-gbx.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/off-i.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/off-ib.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/off-l.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/off-m.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/off-nlx.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/off-o.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/off-orx.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/off-p.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/off-pbs.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/off-u.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/off-w.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/off-wc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/off-wd.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/off-wm.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/on-t.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/a.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/alwyn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/banksTooltip.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/commisionFunctions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/cufon.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/fingerprint.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/functions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/ga-functions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/ga.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/global.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/jquery.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/jquery_002.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/jquery_003.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/jquery_004.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/jquery_005.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/jquery_006.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/jquery_007.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/jquery_008.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/maskedinput.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/slide.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/summary.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/payment_agreement/unregistered_card_common.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/overview.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/payment_agreement.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/PaymentAgreement.html" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PayMock/models/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PayMock/models/request_models.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PayMock/models/response_models.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PayMock/models/user_model.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PayMock/models.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PayMock/views.py" afterPath="$PROJECT_DIR$/PayMock/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PaymentMockup/settings.py" afterPath="$PROJECT_DIR$/PaymentMockup/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PaymentMockup/urls.py" afterPath="$PROJECT_DIR$/PaymentMockup/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/payment_agreement.html" afterPath="$PROJECT_DIR$/templates/payment_agreement.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -83,8 +29,8 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PaymentMockup/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+            <state relative-caret-position="386">
+              <caret line="26" column="58" lean-forward="false" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
               <folding>
                 <element signature="e#648#680#0" expanded="true" />
               </folding>
@@ -92,11 +38,65 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="payment_agreement.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PayMock/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="512">
+              <caret line="32" column="28" lean-forward="false" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#55#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="request_models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PayMock/models/request_models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PaymentMockup/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="109" column="17" lean-forward="true" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PayMock/models/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="64">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_model.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/PayMock/models/user_model.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="5" column="37" lean-forward="false" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="payment_agreement.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/payment_agreement.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16">
-              <caret line="2122" column="40" lean-forward="false" selection-start-line="2122" selection-start-column="40" selection-end-line="2122" selection-end-column="40" />
+            <state relative-caret-position="29216">
+              <caret line="1826" column="4" lean-forward="false" selection-start-line="1826" selection-start-column="4" selection-end-line="1826" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -108,6 +108,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -164,10 +165,17 @@
         <option value="$PROJECT_DIR$/templates/PayUstrona/Podsumowanie.html" />
         <option value="$PROJECT_DIR$/PaymentMockup/settings.py" />
         <option value="$PROJECT_DIR$/templates/PaymentAgreement.html" />
-        <option value="$PROJECT_DIR$/PayMock/views.py" />
-        <option value="$PROJECT_DIR$/PaymentMockup/urls.py" />
-        <option value="$PROJECT_DIR$/templates/payment_agreement.html" />
         <option value="$PROJECT_DIR$/static/payment_agreement/style.css" />
+        <option value="$PROJECT_DIR$/templates/payment_agreement.html" />
+        <option value="$PROJECT_DIR$/PaymentMockup/urls.py" />
+        <option value="$PROJECT_DIR$/PayMock/views.py" />
+        <option value="$PROJECT_DIR$/PayMock/response_models.py" />
+        <option value="$PROJECT_DIR$/PayMock/models.py" />
+        <option value="$PROJECT_DIR$/PayMock/user_model.py" />
+        <option value="$PROJECT_DIR$/PayMock/request_models.py" />
+        <option value="$PROJECT_DIR$/PayMock/__init__.py" />
+        <option value="$PROJECT_DIR$/PayMock/models/__init__.py" />
+        <option value="$PROJECT_DIR$/PayMock/models/user_model.py" />
       </list>
     </option>
   </component>
@@ -178,8 +186,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
-    <option name="width" value="1922" />
+    <option name="x" value="960" />
+    <option name="width" value="961" />
     <option name="height" value="1054" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -200,6 +208,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -240,10 +249,59 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaymentMockup" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaymentMockup" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PayMock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaymentMockup" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaymentMockup" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PayMock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migrations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaymentMockup" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaymentMockup" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaymentMockup" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -254,11 +312,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/PayMock/models" />
+      <recent name="$PROJECT_DIR$/PayMock" />
       <recent name="$PROJECT_DIR$/static/payment_agreement" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/PaymentMockup/static/payment_agreement" />
-      <recent name="$PROJECT_DIR$/PaymentMockup/Static" />
-      <recent name="$PROJECT_DIR$/templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -476,6 +534,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="1b1d116f-f142-4403-a3fe-5c8d4ea1a8b5" name="Default" comment="" />
@@ -498,25 +559,31 @@
       <option name="project" value="LOCAL" />
       <updated>1496179584356</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Own payment agreement page loads properly">
+      <created>1496340982826</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1496340982826</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1922" height="1054" extended-state="6" />
+    <frame x="960" y="0" width="961" height="1054" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23774765" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.50364965" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3319459" sideWeight="0.49635038" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298647" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.110416666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298647" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3319459" sideWeight="0.49635038" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -524,6 +591,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="manage.py@PaymentMockup" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3298647" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298647" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -536,13 +604,70 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit with &quot;Hello World working!&quot;" />
     <MESSAGE value="Added own Payment Agreement page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added own Payment Agreement page." />
+    <MESSAGE value="Own payment agreement page loads properly" />
+    <option name="LAST_COMMIT_MESSAGE" value="Own payment agreement page loads properly" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/PaymentMockup/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="26" column="58" lean-forward="false" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
+          <folding>
+            <element signature="e#648#680#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/payment_agreement.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29216">
+          <caret line="1826" column="4" lean-forward="false" selection-start-line="1826" selection-start-column="4" selection-end-line="1826" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PayMock/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PaymentMockup/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#648#680#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/payment_agreement.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29216">
+          <caret line="1826" column="4" lean-forward="false" selection-start-line="1826" selection-start-column="4" selection-end-line="1826" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PaymentMockup/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#648#680#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PaymentMockup/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -565,7 +690,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -583,7 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="9" column="107" lean-forward="true" selection-start-line="9" selection-start-column="107" selection-end-line="9" selection-end-column="107" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -591,7 +714,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1344">
           <caret line="84" column="39" lean-forward="true" selection-start-line="84" selection-start-column="39" selection-end-line="84" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -599,7 +721,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -607,7 +728,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1984">
           <caret line="124" column="37" lean-forward="false" selection-start-line="124" selection-start-column="37" selection-end-line="124" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -637,13 +757,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PayMock/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -696,31 +809,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PaymentMockup/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1984">
-          <caret line="124" column="37" lean-forward="false" selection-start-line="124" selection-start-column="37" selection-end-line="124" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/PayUstrona/Podsumowanie.html" />
     <entry file="file://$PROJECT_DIR$/templates/PaymentAgreement.html" />
     <entry file="file://$PROJECT_DIR$/templates/overview.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PaymentMockup/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="e#648#680#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -728,7 +822,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -736,7 +829,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -744,7 +836,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="832">
           <caret line="2423" column="26" lean-forward="true" selection-start-line="2423" selection-start-column="26" selection-end-line="2423" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -752,24 +843,83 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="9" column="107" lean-forward="false" selection-start-line="9" selection-start-column="107" selection-end-line="9" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/payment_agreement.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29216">
+          <caret line="1826" column="4" lean-forward="false" selection-start-line="1826" selection-start-column="4" selection-end-line="1826" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PayMock/models/response_models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PayMock/models/request_models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PayMock/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="512">
+          <caret line="32" column="28" lean-forward="false" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
           <folding>
             <element signature="e#0#55#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/payment_agreement.html">
+    <entry file="file://$PROJECT_DIR$/PaymentMockup/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="2122" column="40" lean-forward="false" selection-start-line="2122" selection-start-column="40" selection-end-line="2122" selection-end-column="40" />
+        <state relative-caret-position="386">
+          <caret line="26" column="58" lean-forward="false" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
+          <folding>
+            <element signature="e#648#680#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PayMock/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PaymentMockup/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="109" column="17" lean-forward="true" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PayMock/models/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PayMock/models/user_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="37" lean-forward="false" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
           <folding />
         </state>
       </provider>

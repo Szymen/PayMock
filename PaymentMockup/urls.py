@@ -24,9 +24,10 @@ from PayMock import views
 
 urlpatterns = [
 
+    url(r'^api/v0_1/orders', views.order, name = 'order'),
     url(r'^admin', admin.site.urls, name = 'admin_panel'),
     url(r'^index', views.index, name='index'),
     url(r'^own', views.payment_agreement, name='payment_agreement'),
-                  url(r'^$', views.OverView.as_view(), name='overview')
+    url(r'^$', views.OverView.as_view(), name='overview')
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

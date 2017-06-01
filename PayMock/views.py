@@ -22,3 +22,12 @@ def payment_agreement(request):
     }
 
     return render_to_response("payment_agreement.html", data)
+
+
+def order(request):
+
+    if request.method != 'POST': #it should be post
+        return HttpResponse("FALSHE RICHTUNG!", 418)
+
+    else:
+        return HttpResponse("BRAWO!")
