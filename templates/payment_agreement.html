@@ -1,0 +1,2445 @@
+{% load static %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html class="cufon-active cufon-ready"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Podsumowanie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+
+
+<script src="{% static "payment_agreement/ga.js" %} " type="text/javascript"></script><script type="text/javascript" src=" {% static "payment_agreement/cufon.js" %} "></script><style type="text/css">cufon{text-indent:0!important;}@media screen,projection{cufon{display:inline!important;display:inline-block!important;position:relative!important;vertical-align:middle!important;font-size:1px!important;line-height:1px!important;}cufon cufontext{display:-moz-inline-box!important;display:inline-block!important;width:0!important;height:0!important;overflow:hidden!important;text-indent:-10000in!important;}cufon canvas{position:relative!important;}}@media print{cufon{padding:0!important;}cufon canvas{display:none!important;}}</style>
+<script type="text/javascript" src="{% static "payment_agreement/alwyn.js" %}" %}></script>
+<script type="text/javascript" src="{% static "payment_agreement/jquery_005.js" %}"></script>
+<script type="text/javascript" src="{% static "payment_agreement/jquery_004.js" %}"></script>
+<script type="text/javascript" src="{% static "payment_agreement/global.js" %}"></script>
+<script type="text/javascript" src="{% static "payment_agreement/slide.js" %}"></script>
+<script type="text/javascript" src="{% static "payment_agreement/jquery_003.js" %}"></script>
+<script type="text/javascript" src="{% static "payment_agreement/jquery_007.js" %}"></script>
+<script type="text/javascript" src="{% static "payment_agreement/maskedinput.js" %}"></script>
+<script type="text/javascript" src="{% static "payment_agreement/jquery.js" %}"></script>
+<script type="text/javascript" src="{% static "payment_agreement/summary.js" %}"></script>
+<script type="text/javascript" src="{% static "payment_agreement/functions.js" %}"></script>
+<script type="text/javascript" src="{% static "payment_agreement/ga-functions.js" %}"></script>
+<script type="text/javascript" src="{% static "payment_agreement/banksTooltip.js" %}"></script>
+<script type="text/javascript" src="{% static "payment_agreement/jquery_006.js" %}"></script>
+<script type="text/javascript" src="{% static "payment_agreement/commisionFunctions.js" %}"></script>
+<script type="text/javascript">
+    //<![CDATA[
+    var cpmServerAddress = '/';
+    if (cpmServerAddress == '/') {
+        cpmServerAddress = window.location.protocol + '//' + window.location.hostname;
+    }
+    var unregisteredCardPosOwner = "paYU S.A.";
+    var googleAnalyticsAccountId = "{'accountId':'UA-23234678-24','httpsAddress':'https://secure.payu.com/res/v2/ga.js', 'httpAddress':'https://static.payu.com/js/lib/ga.js'}";
+    var cardAddError = 'Płatność wybranym kanałem płatności nie powiodła się. Możesz spróbować dokonać płatności innym kanałem.';
+    var errorCard = [];
+    errorCard[0] = 'To pole jest wymagane.';
+    errorCard[1] = 'Pole wypełnione nieprawidłowo.';
+    errorCard[2] = 'Błędny numer karty.';
+    errorCard[3] = 'Błędna data ważności karty.';
+    errorCard[4] = 'Błędny kod zabezpieczający ("CVV2" lub "CVC2").';
+    errorCard[5] = 'Błędny miesiąc wygaśnięcia karty.';
+    errorCard[6] = 'Błędny rok wygaśnięcia karty.';
+
+    var cardUrlImg = '/pl/standard/co/images';
+    var cardUrlIco = [];
+    cardUrlIco[0] = '<img src="/pl/standard/co/images/cardsVisa.3929e16d396d93639dce4785454fd252.png" class="visa" alt="" title=""  >';
+    cardUrlIco[1] = '<img src="/pl/standard/co/images/cardsMasterCard.3929e16d396d93639dce4785454fd252.png" class="master" alt="" title=""  >';
+    var enableBtn = 'Inna karta';
+
+    jQuery.extend(jQuery.validator.messages, {
+        required: 'To pole jest wymagane.',
+        emailAscii: 'Błedny adres e-mail. Spróbuj ponownie.',
+        email: 'Błedny adres e-mail. Spróbuj ponownie.',
+        maxlength: jQuery.validator.format('Wpisz mniej niż {0} znaków'),
+        rulesRequired: 'Wymagana jest akceptacja Regulaminu wpłat PayU',
+        peselRequired: 'Przy pierwszej płatności kartą podaj numer PESEL.',
+        pesel: 'Podany PESEL jest nieprawidłowy.',
+        nipLength: 'Wymagana jest akceptacja Regulaminu wpłat PayU',
+        paymentMethodRequired: 'Wybierz sposób płatności.'
+    });
+
+    startGoogleAnalytics(googleAnalyticsAccountId);
+    addGoogleAnalyticsAction('/pl/standard/co/summary');
+
+    
+    //]]>
+</script>
+<script type="text/javascript" src="{% static "payment_agreement/fingerprint.js" %}"></script>
+    <link rel="stylesheet" href="{% static "payment_agreement/jquery.css" %}" type="text/css">
+    
+
+
+
+<link rel="stylesheet" href="{% static "payment_agreement/style.css" %}" type="text/css">
+
+
+    
+
+
+<link rel="shortcut icon" href="https://secure.payu.com/pl/standard/co/images/favicon.ico" type="image/x-icon">
+
+    <script type="text/javascript">
+        //<![CDATA[
+        var currency = 'PLN';
+        var totalAmount = '10.0';
+        var availableShippingCost = [];
+        var availableShippingCostForSelectCountry = [];
+        var availableShippingCostTemp = [];
+        var chosenAvailableShippingCostIndex = -1;
+        var commisionFee = -1;
+        var address = [];
+        var buyerCountries = [];
+        var buyerStates = [];
+        var shipToOtherCountry = false;
+        var defaultCountryCode = '';
+        var installmentsSubmitButtonText = 'Płacę na raty';
+        var defaultSubmitButtonText = 'Płacę 10,00 PLN';
+
+        
+            
+            var isOrderMaterial = false;
+        
+
+        function setInstallmentsButton() {
+            $('#invokePay').val(installmentsSubmitButtonText);
+            $('#actionForm').val(installmentsSubmitButtonText);
+        }
+
+        function setDefaultButton() {
+            if (!changeShippingCost(true)) {
+                $('#invokePay').val(defaultSubmitButtonText);
+                $('#actionForm').val(defaultSubmitButtonText);
+            }
+        }
+
+        function refreshShippingCosts(){
+            $("#refreshTrigger").click();
+        }
+
+        function changeCountry() {
+            refreshShippingCosts();
+        }
+
+        function showPesel(){
+            
+            addGoogleAnalyticsAction("/pl/standard/co/summary/form_fields/pesel/show");
+            $("#HidePesel").show();
+            
+        }
+
+        function hidePesel(){
+            $("#HidePesel").hide();
+        }
+
+        function showPreAgreeFinProductOffer(){
+            $("#preAgreeFinProductOfferBox").show();
+        }
+
+        function hidePreAgreeFinProductOffer(){
+            $("#preAgreeFinProductOfferBox").hide();
+        }
+
+        function unregisteredCardChosen(){
+            addGoogleAnalyticsAction("/pl/standard/co/summary/metody_platnosci/card/unregistered");
+        }
+
+        function registeredCardChosen(){
+            addGoogleAnalyticsAction("/pl/standard/co/summary/metody_platnosci/card/saved");
+        }
+
+        function bankChosen(bankName){
+            addGoogleAnalyticsAction("/pl/standard/co/summary/metody_platnosci/bank/"+bankName);
+        }
+
+        
+
+        
+        
+        
+
+
+        
+
+        //]]>
+    </script>
+
+</head>
+
+<body>
+<div id="white_overlay"></div>
+<div id="wrapper">
+<div id="top">
+    <div id="topAbove">
+        
+
+
+
+
+
+
+
+
+
+
+<div id="logo">
+    
+        
+            <a href="#" style="cursor: default"></a>
+        
+        
+    
+</div>
+
+<div class="topMenu">
+	<ul>
+		
+		<li class="langSelect shorter">
+			<form id="langForm" action="/pl/standard/co/summary?execution=e1s1&amp;_eventId=changeLang" method="post">
+				<input value="" name="execution" type="hidden">
+				<select style="display: none;" name="lang" id="lang" class="styled selectBox" onchange="changeLang(this); ">
+					<option value="pl" selected="selected">PL</option>
+					<option value="en">EN</option>
+                    <option value="cs">CZ</option>
+                    <option value="de">DE</option>
+				</select><a tabindex="0" title="" style="display: inline-block; -moz-user-select: none;" class="selectBox styled selectBox-dropdown"><span class="selectBox-label"><cufon style="width: 18px; height: 16px;" alt="PL" class="cufon cufon-canvas"><canvas style="width: 26px; height: 18px; top: -2px; left: -1px;" height="18" width="26"></canvas><cufontext>PL</cufontext></cufon></span><span class="selectBox-arrow"></span></a>
+			<input name="csrf392adbafcc9248cca674acf6fc100393" value="aad3dc772df443a79e34ffa0d4ff960e" type="hidden">
+</form>
+		</li>
+		
+	</ul>
+</div>
+
+<script type="text/javascript">
+function changeLang(langForm)
+{
+	var form = $('form#langForm');
+	form.append('<input type="hidden" name="_eventId_changeLang" value="">');
+	form.submit();
+}
+</script>
+
+
+    </div>
+    <div id="topUnder">
+        
+
+
+
+
+
+
+
+    <div class="topHelloMsg3">
+        <form novalidate="novalidate" id="loginForm" class="valid" action="/pl/standard/co/summary?execution=e1s1&amp;" method="post">
+            <div class="login_button_text blue cufon"><cufon style="width: 4px; height: 16px;" alt=" " class="cufon cufon-canvas"><canvas style="width: 17px; height: 18px; top: -2px; left: -1px;" height="18" width="17"></canvas><cufontext> </cufontext></cufon><cufon style="width: 41px; height: 16px;" alt="Masz " class="cufon cufon-canvas"><canvas style="width: 54px; height: 18px; top: -2px; left: -1px;" height="18" width="54"></canvas><cufontext>Masz </cufontext></cufon><cufon style="width: 44px; height: 16px;" alt="konto " class="cufon cufon-canvas"><canvas style="width: 57px; height: 18px; top: -2px; left: -1px;" height="18" width="57"></canvas><cufontext>konto </cufontext></cufon><cufon style="width: 48px; height: 16px;" alt="PayU? " class="cufon cufon-canvas"><canvas style="width: 61px; height: 18px; top: -2px; left: -1px;" height="18" width="61"></canvas><cufontext>PayU? </cufontext></cufon></div>
+            <div>
+                <input id="login" name="loginForm.login" class="input login required" type="text">
+                
+                    
+                
+            </div>
+            <div>
+                <input id="password" name="loginForm.password" class="input password required" value="" type="password">
+                
+                    
+                
+            </div>
+            <div>
+                <input class="button-medium button-login" id="userLoginButton" name="_eventId_userLogin" onclick="$('#loginForm').validate().form() ? $('#white_overlay').show() : event.stopPropagation()" value="Zaloguj" type="submit">
+            </div>
+        <input name="csrf1345580fe27340f5a0ebc6034c6e08ec" value="fac14b9e9c7543d5a0d9ecb7d02908e0" type="hidden">
+</form>
+        <div class="buttonDesc cufon"><cufon style="width: 34px; height: 10px;" alt="Zapłać " class="cufon cufon-canvas"><canvas style="width: 42px; height: 12px; top: -1px; left: -1px;" height="12" width="42"></canvas><cufontext>Zapłać </cufontext></cufon><cufon style="width: 38px; height: 10px;" alt="kontem " class="cufon cufon-canvas"><canvas style="width: 46px; height: 12px; top: -1px; left: -1px;" height="12" width="46"></canvas><cufontext>kontem </cufontext></cufon><cufon style="width: 27px; height: 10px;" alt="PayU " class="cufon cufon-canvas"><canvas style="width: 35px; height: 12px; top: -1px; left: -1px;" height="12" width="35"></canvas><cufontext>PayU </cufontext></cufon><cufon style="width: 11px; height: 10px;" alt="w " class="cufon cufon-canvas"><canvas style="width: 19px; height: 12px; top: -1px; left: -1px;" height="12" width="19"></canvas><cufontext>w </cufontext></cufon><cufon style="width: 9px; height: 10px;" alt="9 " class="cufon cufon-canvas"><canvas style="width: 17px; height: 12px; top: -1px; left: -1px;" height="12" width="17"></canvas><cufontext>9 </cufontext></cufon><cufon style="width: 34px; height: 10px;" alt="sekund" class="cufon cufon-canvas"><canvas style="width: 39px; height: 12px; top: -1px; left: -1px;" height="12" width="39"></canvas><cufontext>sekund</cufontext></cufon></div>
+    </div>
+
+    </div>
+</div>
+
+<div id="unregisteredCardData"><div id="card_container" style="display: none">
+        <div id="cardTopWraper" style="display:none"><img src="{% static "payment_agreement/loglock_small.png" %}" id="cardlock" alt="" title=""><h3 class="cufon"><cufon style="width: 92px; height: 17.3333px;" alt="Bezpieczna " class="cufon cufon-canvas"><canvas style="width: 106px; height: 20px; top: -2px; left: -1px;" height="20" width="106"></canvas><cufontext>Bezpieczna </cufontext></cufon><cufon style="width: 70px; height: 17.3333px;" alt="płatność " class="cufon cufon-canvas"><canvas style="width: 84px; height: 20px; top: -2px; left: -1px;" height="20" width="84"></canvas><cufontext>płatność </cufontext></cufon><cufon style="width: 40px; height: 17.3333px;" alt="kartą" class="cufon cufon-canvas"><canvas style="width: 49px; height: 20px; top: -2px; left: -1px;" height="20" width="49"></canvas><cufontext>kartą</cufontext></cufon></h3><img src="{% static "payment_agreement/footLogo4Transparent.png" %}" id="cardPci" alt="" title=""><img src="{% static "payment_agreement/footLogo3Transparent.png" %}" id="cardVerVisa" alt="" title=""><img src="{% static "payment_agreement/footLogo2Transparent.png" %}" id="cardSecMaster" alt="" title=""></div>
+        <div id="normalCardInfoTable">
+            <div class="card_row">
+                <div id="card_number_text" class="card_col_left"><span class="card-text">Numer karty</span></div>
+                <div id="card_number_content" class="card_col_right"></div>
+                <div id="imgCard"></div>
+            </div>
+            <div class="card_row card_error" id="error_number_container">
+                <div class="card_col_left">&nbsp;</div>
+                <div class="card_col_right"><label class="error" id="error_number"></label></div>
+            </div>
+            <div class="card_row">
+                <div id="card_expm_text" class="card_col_left"><span class="card-text">Data ważności karty</span></div>
+                <div id="card_expm_content" class="card_col_right_m"></div>
+                <div class="card_col_right_slash">/</div>
+                <div id="card_expy_content" class="card_col_right_y"></div>
+            </div>
+            <div class="card_row card_error" id="error_date_container">
+                <div class="card_col_left">&nbsp;</div>
+                <div class="card_col_right"><label class="error" id="error_date"></label></div>
+            </div>
+            <div class="card_row">
+                <div id="card_cvv_text" class="card_col_left"><span class="card-text-cvv">Kod zabezpieczający <br> CVV2/CVC2 <img src="{% static "payment_agreement/ico-info-help.jpg" %}" id="card-info" alt="" title=""></span></div>
+                <div id="card_cvv_content" class="card_col_right"></div>
+            </div>
+            <div class="card_row card_error" id="error_cvv_container">
+                <div class="card_col_left">&nbsp;</div>
+                <div class="card_col_right"><label class="error" id="error_cvv"></label></div>
+            </div>
+            
+        </div>
+        
+    </div></div>
+<form id="paymentForm" class="valid" action="/pl/standard/co/summary?execution=e1s1&amp;" method="post">
+<input id="country_code_submit" style="display:none;" name="_eventId_refreshSummary" type="submit">
+<div id="content">
+<div class="contentTopGra"></div>
+<div class="contentInnerSPage">
+<h3 class="cufon contentInnerHeading"><span class="blue"><cufon style="width: 106px; height: 16px;" alt="Podsumowanie" class="cufon cufon-canvas"><canvas style="width: 114px; height: 18px; top: -2px; left: -1px;" height="18" width="114"></canvas><cufontext>Podsumowanie</cufontext></cufon></span><cufon style="width: 4px; height: 16px;" alt=" " class="cufon cufon-canvas"><canvas style="width: 17px; height: 18px; top: -2px; left: -1px;" height="18" width="17"></canvas><cufontext> </cufontext></cufon><cufon style="width: 9px; height: 16px;" alt="| " class="cufon cufon-canvas"><canvas style="width: 22px; height: 18px; top: -2px; left: -1px;" height="18" width="22"></canvas><cufontext>| </cufontext></cufon><cufon style="width: 64px; height: 16px;" alt="Płatność " class="cufon cufon-canvas"><canvas style="width: 76px; height: 18px; top: -2px; left: -1px;" height="18" width="76"></canvas><cufontext>Płatność </cufontext></cufon><cufon style="width: 25px; height: 16px;" alt="dla " class="cufon cufon-canvas"><canvas style="width: 38px; height: 18px; top: -2px; left: -1px;" height="18" width="38"></canvas><cufontext>dla </cufontext></cufon><strong><cufon style="width: 73px; height: 16px;" alt="OpenPayU" class="cufon cufon-canvas"><canvas style="width: 79px; height: 18px; top: -2px; left: -1px;" height="18" width="79"></canvas><cufontext>OpenPayU</cufontext></cufon></strong><cufon style="width: 4px; height: 16px;" alt="." class="cufon cufon-canvas"><canvas style="width: 17px; height: 18px; top: -2px; left: -1px;" height="18" width="17"></canvas><cufontext>.</cufontext></cufon></h3>
+
+<div class="infoBox error" id="message_commit" style="display:none">
+                   	<span id="error_message_content">
+	            
+                    	</span>
+    <span onclick="closeAlertBox('message_commit');" class="closeBtn">x</span>
+</div>
+<div class="cartLeft">
+    <div class="cartLeftTop">
+        <h3 class="cufon blue"><cufon style="width: 45px; height: 16px;" alt="Twoje " class="cufon cufon-canvas"><canvas style="width: 57px; height: 18px; top: -2px; left: -1px;" height="18" width="57"></canvas><cufontext>Twoje </cufontext></cufon><cufon style="width: 84px; height: 16px;" alt="zamówienie" class="cufon cufon-canvas"><canvas style="width: 92px; height: 18px; top: -2px; left: -1px;" height="18" width="92"></canvas><cufontext>zamówienie</cufontext></cufon></h3>
+
+        <table>
+            <thead>
+            <tr>
+                <td class="firstCol">L.p.</td>
+                <td class="secondCol">Nazwa (liczba)</td>
+                <td class="thirdCol">Kwota</td>
+            </tr>
+            </thead>
+            <tbody>
+            
+            
+                
+                
+                    
+                        <tr class="oddRow">
+                            <td class="firstCol">1</td>
+                            <td class="secondCol">
+                                    Product 1 
+                            </td>
+                            <td class="thirdCol">10,00 PLN</td>
+                        </tr>
+                        
+                    
+                
+            
+            
+            
+            
+            
+            
+            <tr class="lastRow">
+                <td class="firstCol"></td>
+                <td class="secondCol alignRight"><strong>Suma</strong></td>
+                <td class="thirdCol red" id="totalSummaryAmount">
+                    10,00 PLN
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    //<![CDATA[
+    
+    function enableCustomerNameEdit() {
+        setCustomerNameEditable();
+    }
+    function disableCustomerNameEdit() {
+        setCustomerNameEditable();
+    }
+    
+    //]]>
+</script>
+
+<input id="tokenInput" name="token" style="display:none;" type="text">
+<input id="tokenOperationStatusInput" name="tokenOperationStatus" style="display:none;" type="text">
+<input id="cardSavedInput" name="cardToSave" style="display:none" value="true" type="checkbox"><input name="_cardToSave" value="on" type="hidden">
+
+<div class="cartBottom">
+    
+
+    <h3 class="cufon blue"><cufon style="width: 55px; height: 16px;" alt="Sposób " class="cufon cufon-canvas"><canvas style="width: 67px; height: 18px; top: -2px; left: -1px;" height="18" width="67"></canvas><cufontext>Sposób </cufontext></cufon><cufon style="width: 51px; height: 16px;" alt="zapłaty" class="cufon cufon-canvas"><canvas style="width: 60px; height: 18px; top: -2px; left: -1px;" height="18" width="60"></canvas><cufontext>zapłaty</cufontext></cufon></h3>
+    <div id="paymentMethodIdDiv">
+        
+    </div>
+    <div class="cartBottomLeft" id="payment_method_list">
+        <div class="PaymentMethodList" id="payment_method_option_other">
+            <script type="text/javascript">
+                $("#card_container").appendTo("#unregisteredCardData");
+            </script>
+            
+            
+            
+
+            
+
+            
+
+            
+                
+                
+
+                
+
+                
+
+                
+                
+                    
+                        
+                        
+                            <div class="singlePaymentMethod">
+
+                                <input disabled="disabled" id="otherPaymentMethodIdPAY_BY_LINKm6l0N5p4" name="paymentMethodId" tabindex="20" class="disable paymentMethodRequired" data-paytype="m" value="PAY_BY_LINKm6l0N5p4" type="radio">
+                                
+                                    
+                                        <div class="bank-item-container">
+                                            <img src="{% static "payment_agreement/off-m.gif" %}" id="paymetlogoPAY_BY_LINKm6l0N5p4" rel="tooltip" alt="" title="Płatność tymczasowo niedostępna. Wybierz inną metodę płatności.">
+                                        </div>
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+                        
+                    
+                    
+                
+                    
+                        
+                        
+                            <div class="singlePaymentMethod">
+
+                                <input disabled="disabled" id="otherPaymentMethodIdPAY_BY_LINKKRplDxjC" name="paymentMethodId" tabindex="20" class="disable paymentMethodRequired" data-paytype="p" value="PAY_BY_LINKKRplDxjC" type="radio">
+                                
+                                    
+                                        <div class="bank-item-container">
+                                            <img src="{% static "payment_agreement/off-p.gif" %}" id="paymetlogoPAY_BY_LINKKRplDxjC" rel="tooltip" alt="" title="Płatność tymczasowo niedostępna. Wybierz inną metodę płatności.">
+                                        </div>
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+                        
+                    
+                    
+                
+                    
+                        
+                        
+                            <div class="singlePaymentMethod">
+
+                                <input disabled="disabled" id="otherPaymentMethodIdPAY_BY_LINKD5hfq5Ev" name="paymentMethodId" tabindex="20" class="disable paymentMethodRequired" data-paytype="g" value="PAY_BY_LINKD5hfq5Ev" type="radio">
+                                
+                                    
+                                        <div class="bank-item-container">
+                                            <img src="{% static "payment_agreement/off-g.gif" %}" id="paymetlogoPAY_BY_LINKD5hfq5Ev" rel="tooltip" alt="" title="Płatność tymczasowo niedostępna. Wybierz inną metodę płatności.">
+                                        </div>
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+                        
+                    
+                    
+                
+                    
+                        
+                        
+                            <div class="singlePaymentMethod">
+
+                                <input disabled="disabled" id="otherPaymentMethodIdPAY_BY_LINKbvKSabrE" name="paymentMethodId" tabindex="20" class="disable paymentMethodRequired" data-paytype="w" value="PAY_BY_LINKbvKSabrE" type="radio">
+                                
+                                    
+                                        <div class="bank-item-container">
+                                            <img src="{% static "payment_agreement/off-w.gif" %}" id="paymetlogoPAY_BY_LINKbvKSabrE" rel="tooltip" alt="" title="Płatność tymczasowo niedostępna. Wybierz inną metodę płatności.">
+                                        </div>
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+                        
+                    
+                    
+                
+                    
+                        
+                        
+                            <div class="singlePaymentMethod">
+
+                                <input disabled="disabled" id="otherPaymentMethodIdPAY_BY_LINKh7t9bNG4" name="paymentMethodId" tabindex="20" class="disable paymentMethodRequired" data-paytype="o" value="PAY_BY_LINKh7t9bNG4" type="radio">
+                                
+                                    
+                                        <div class="bank-item-container">
+                                            <img src="{% static "payment_agreement/off-o.gif" %}" id="paymetlogoPAY_BY_LINKh7t9bNG4" rel="tooltip" alt="" title="Płatność tymczasowo niedostępna. Wybierz inną metodę płatności.">
+                                        </div>
+                                    
+
+                                    
+
+                                    
+                                
+                            </div>
+                        
+                    
+                    
+                
+
+                
+                    <div class="clr"></div>
+                
+
+                
+
+
+                    
+                
+                
+
+            
+
+            
+            
+            <div id="more_card" style="width: 100%; float: left;">
+                
+                
+                
+
+                
+
+                
+
+                
+                
+
+                
+
+                
+                
+                
+                    
+                    <div class="singlePaymentMethod">
+                        <input disabled="disabled" id="otherPaymentMethodIdPAY_BY_LINKj4eGVS9k" name="paymentMethodId" tabindex="20" class="disable paymentMethodRequired" data-paytype="i" value="PAY_BY_LINKj4eGVS9k" type="radio">
+                        
+                            
+                                <div class="bank-item-container">
+                                    <img src="{% static "payment_agreement/off-i.gif" %}" id="paymetlogoPAY_BY_LINKj4eGVS9k" rel="tooltip" alt="" title="Płatność tymczasowo niedostępna. Wybierz inną metodę płatności.">
+                                </div>
+                            
+
+                            
+
+                            
+                        
+                    </div>
+                    
+                
+                
+                    
+                    <div class="singlePaymentMethod">
+                        <input disabled="disabled" id="otherPaymentMethodIdPAY_BY_LINKk7dvO4KP" name="paymentMethodId" tabindex="20" class="disable paymentMethodRequired" data-paytype="wm" value="PAY_BY_LINKk7dvO4KP" type="radio">
+                        
+                            
+                                <div class="bank-item-container">
+                                    <img src="{% static "payment_agreement/off-wm.gif" %}" id="paymetlogoPAY_BY_LINKk7dvO4KP" rel="tooltip" alt="" title="Płatność tymczasowo niedostępna. Wybierz inną metodę płatności.">
+                                </div>
+                            
+
+                            
+
+                            
+                        
+                    </div>
+                    
+                
+                
+                    
+                    <div class="singlePaymentMethod">
+                        <input disabled="disabled" id="otherPaymentMethodIdPAY_BY_LINKLucBv97Y" name="paymentMethodId" tabindex="20" class="disable paymentMethodRequired" data-paytype="ab" value="PAY_BY_LINKLucBv97Y" type="radio">
+                        
+                            
+                                <div class="bank-item-container">
+                                    <img src="{% static "payment_agreement/off-ab.gif" %}" id="paymetlogoPAY_BY_LINKLucBv97Y" rel="tooltip" alt="" title="Płatność tymczasowo niedostępna. Wybierz inną metodę płatności.">
+                                </div>
+                            
+
+                            
+
+                            
+                        
+                    </div>
+                    
+                
+                
+                    
+                    <div class="singlePaymentMethod">
+                        <input disabled="disabled" id="otherPaymentMethodIdPAY_BY_LINKvpi4w9Oo" name="paymentMethodId" tabindex="20" class="disable paymentMethodRequired" data-paytype="as" value="PAY_BY_LINKvpi4w9Oo" type="radio">
+                        
+                            
+                                <div class="bank-item-container">
+                                    <img src="{% static "payment_agreement/off-as.png" %}" id="paymetlogoPAY_BY_LINKvpi4w9Oo" rel="tooltip" alt="" title="Płatność tymczasowo niedostępna. Wybierz inną metodę płatności.">
+                                </div>
+                            
+
+                            
+
+                            
+                        
+                    </div>
+                    
+                
+                
+                    
+                    <div class="singlePaymentMethod">
+                        <input disabled="disabled" id="otherPaymentMethodIdPAY_BY_LINKMVXTQTwi" name="paymentMethodId" tabindex="20" class="disable paymentMethodRequired" data-paytype="l" value="PAY_BY_LINKMVXTQTwi" type="radio">
+                        
+                            
+                                <div class="bank-item-container">
+                                    <img src="{% static "payment_agreement/off-l.gif" %}" id="paymetlogoPAY_BY_LINKMVXTQTwi" rel="tooltip" alt="" title="Płatność tymczasowo niedostępna. Wybierz inną metodę płatności.">
+                                </div>
+                            
+
+                            
+
+                            
+                        
+                    </div>
+                    
+                
+                
+                    
+                    <div class="singlePaymentMethod">
+                        <input disabled="disabled" id="otherPaymentMethodIdPAY_BY_LINKGPMP5n73" name="paymentMethodId" tabindex="20" class="disable paymentMethodRequired" data-paytype="wc" value="PAY_BY_LINKGPMP5n73" type="radio">
+                        
+                            
+                                <div class="bank-item-container">
+                                    <img src="{% static "payment_agreement/off-wc.png" %}" id="paymetlogoPAY_BY_LINKGPMP5n73" rel="tooltip" alt="" title="Płatność tymczasowo niedostępna. Wybierz inną metodę płatności.">
+                                </div>
+                            
+
+                            
+
+                            
+                        
+                    </div>
+                    
+                
+                
+                    
+                    <div class="singlePaymentMethod">
+                        <input disabled="disabled" id="otherPaymentMethodIdPAY_BY_LINK8WXBqciI" name="paymentMethodId" tabindex="20" class="disable paymentMethodRequired" data-paytype="u" value="PAY_BY_LINK8WXBqciI" type="radio">
+                        
+                            
+                                <div class="bank-item-container">
+                                    <img src="{% static "payment_agreement/off-u.gif" %}" id="paymetlogoPAY_BY_LINK8WXBqciI" rel="tooltip" alt="" title="Płatność tymczasowo niedostępna. Wybierz inną metodę płatności.">
+                                </div>
+                            
+
+                            
+
+                            
+                        
+                    </div>
+                    
+                
+                
+                    
+                    <div class="singlePaymentMethod">
+                        <input disabled="disabled" id="otherPaymentMethodIdPAY_BY_LINKcg8V7fya" name="paymentMethodId" tabindex="20" class="disable paymentMethodRequired" data-paytype="wd" value="PAY_BY_LINKcg8V7fya" type="radio">
+                        
+                            
+                                <div class="bank-item-container">
+                                    <img src="{% static "payment_agreement/off-wd.gif" %}" id="paymetlogoPAY_BY_LINKcg8V7fya" rel="tooltip" alt="" title="Płatność tymczasowo niedostępna. Wybierz inną metodę płatności.">
+                                </div>
+                            
+
+                            
+
+                            
+                        
+                    </div>
+                    
+                
+                
+                    
+                    <div class="singlePaymentMethod">
+                        <input disabled="disabled" id="otherPaymentMethodIdPAY_BY_LINKAasyzJMh" name="paymentMethodId" tabindex="20" class="disable paymentMethodRequired" data-paytype="ps" value="PAY_BY_LINKAasyzJMh" type="radio">
+                        
+                            
+                                <div class="bank-item-container">
+                                    <img src="{% static "payment_agreement/off-pbs.png" %}" id="paymetlogoPAY_BY_LINKAasyzJMh" rel="tooltip" alt="" title="Płatność tymczasowo niedostępna. Wybierz inną metodę płatności.">
+                                </div>
+                            
+
+                            
+
+                            
+                        
+                    </div>
+                    
+                
+                
+                    
+                    <div class="singlePaymentMethod">
+                        <input disabled="disabled" id="otherPaymentMethodIdWIRE2vDMHUHJ" name="paymentMethodId" tabindex="20" class="disable paymentMethodRequired" data-paytype="b" value="WIRE2vDMHUHJ" type="radio">
+                        
+                            
+                                <div class="bank-item-container">
+                                    <img src="{% static "payment_agreement/off-b.gif" %}" id="paymetlogoWIRE2vDMHUHJ" rel="tooltip" alt="" title="Płatność tymczasowo niedostępna. Wybierz inną metodę płatności.">
+                                </div>
+                            
+
+                            
+
+                            
+                        
+                    </div>
+                    
+                
+                
+                    
+                    <div class="singlePaymentMethod">
+                        <input disabled="disabled" id="otherPaymentMethodIdPAY_BY_LINKFZZmgdX4" name="paymentMethodId" tabindex="20" class="disable paymentMethodRequired" data-paytype="ib" value="PAY_BY_LINKFZZmgdX4" type="radio">
+                        
+                            
+                                <div class="bank-item-container">
+                                    <img src="{% static "payment_agreement/off-ib.png" %}" id="paymetlogoPAY_BY_LINKFZZmgdX4" rel="tooltip" alt="" title="Płatność tymczasowo niedostępna. Wybierz inną metodę płatności.">
+                                </div>
+                            
+
+                            
+
+                            
+                        
+                    </div>
+                    
+                
+                
+                    
+                    <div class="singlePaymentMethod">
+                        <input id="otherPaymentMethodIdTEST_PAYMENToXFMzgQm" name="paymentMethodId" tabindex="20" onclick="hidePesel();setDefaultButton();enableCustomerNameEdit();bankChosen('payU Test Payment');doNotRequirePhoneNumber();hidePreAgreeFinProductOffer();" class=" paymentMethodRequired" data-paytype="t" value="TEST_PAYMENToXFMzgQm" type="radio">
+                        
+                            
+
+                            
+
+                            
+                                <img src="{% static "payment_agreement/on-t.png" %}" id="paymetlogoTEST_PAYMENToXFMzgQm" onclick="hidePesel();setDefaultButton();enableCustomerNameEdit();bankChosen('payU Test Payment');doNotRequirePhoneNumber();hidePreAgreeFinProductOffer();" alt="PayU Test Payment" title="">
+                            
+                        
+                    </div>
+                    
+                
+                
+                    
+                    <div class="singlePaymentMethod">
+                        <input disabled="disabled" id="otherPaymentMethodIdPAY_BY_LINKSluaGSrJ" name="paymentMethodId" tabindex="20" class="disable paymentMethodRequired" data-paytype="bo" value="PAY_BY_LINKSluaGSrJ" type="radio">
+                        
+                            
+                                <div class="bank-item-container">
+                                    <img src="{% static "payment_agreement/off-bo.png" %}" id="paymetlogoPAY_BY_LINKSluaGSrJ" rel="tooltip" alt="" title="Płatność tymczasowo niedostępna. Wybierz inną metodę płatności.">
+                                </div>
+                            
+
+                            
+
+                            
+                        
+                    </div>
+                    
+                
+                
+                    
+                    <div class="singlePaymentMethod">
+                        <input disabled="disabled" id="otherPaymentMethodIdPEX_ANONYMOUSx4CyAGnG" name="paymentMethodId" tabindex="20" class="disable paymentMethodRequired" data-paytype="bnx" value="PEX_ANONYMOUSx4CyAGnG" type="radio">
+                        
+                            
+                                <div class="bank-item-container">
+                                    <img src="{% static "payment_agreement/off-bnx.png" %}" id="paymetlogoPEX_ANONYMOUSx4CyAGnG" rel="tooltip" alt="" title="Płatność tymczasowo niedostępna. Wybierz inną metodę płatności.">
+                                </div>
+                            
+
+                            
+
+                            
+                        
+                    </div>
+                    
+                
+                
+                    
+                    <div class="singlePaymentMethod">
+                        <input disabled="disabled" id="otherPaymentMethodIdPEX_ANONYMOUS448BoZDm" name="paymentMethodId" tabindex="20" class="disable paymentMethodRequired" data-paytype="gbx" value="PEX_ANONYMOUS448BoZDm" type="radio">
+                        
+                            
+                                <div class="bank-item-container">
+                                    <img src="{% static "payment_agreement/off-gbx.png" %}" id="paymetlogoPEX_ANONYMOUS448BoZDm" rel="tooltip" alt="" title="Płatność tymczasowo niedostępna. Wybierz inną metodę płatności.">
+                                </div>
+                            
+
+                            
+
+                            
+                        
+                    </div>
+                    
+                
+                
+                    
+                    <div class="singlePaymentMethod">
+                        <input disabled="disabled" id="otherPaymentMethodIdPEX_ANONYMOUS93coCGcc" name="paymentMethodId" tabindex="20" class="disable paymentMethodRequired" data-paytype="nlx" value="PEX_ANONYMOUS93coCGcc" type="radio">
+                        
+                            
+                                <div class="bank-item-container">
+                                    <img src="{% static "payment_agreement/off-nlx.png" %}" id="paymetlogoPEX_ANONYMOUS93coCGcc" rel="tooltip" alt="" title="Płatność tymczasowo niedostępna. Wybierz inną metodę płatności.">
+                                </div>
+                            
+
+                            
+
+                            
+                        
+                    </div>
+                    
+                
+                
+                    
+                    <div class="singlePaymentMethod">
+                        <input disabled="disabled" id="otherPaymentMethodIdPEX_ANONYMOUSKsO86Qpu" name="paymentMethodId" tabindex="20" class="disable paymentMethodRequired" data-paytype="orx" value="PEX_ANONYMOUSKsO86Qpu" type="radio">
+                        
+                            
+                                <div class="bank-item-container">
+                                    <img src="{% static "payment_agreement/off-orx.png" %}" id="paymetlogoPEX_ANONYMOUSKsO86Qpu" rel="tooltip" alt="" title="Płatność tymczasowo niedostępna. Wybierz inną metodę płatności.">
+                                </div>
+                            
+
+                            
+
+                            
+                        
+                    </div>
+                    
+
+
+                    
+                </div>
+                <div style="display: none;" class="moreMethods clr" id="show">
+                    <div class="btnInfo">pokaż</div>
+                    <img src="{% static "payment_agreement/moreDown.jpg" %}" alt="" title="">
+                </div>
+                <div class="moreMethods clr" id="hide" style="">
+                    <div class="btnInfo">ukryj</div>
+                    <img src="{% static "payment_agreement/moreUp.jpg" %}" alt="" title="">
+                </div>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        //<![CDATA[
+
+        $(document).ready(function () {
+
+            $("#hide").click(function () {
+                addGoogleAnalyticsAction('/pl/standard/co/summary/metody_platnosci/ukryj');
+                var hCard = $('#card_style').parent().attr('id');
+                if (hCard == 'more_card') {
+                    $('#card_container').fadeOut('slow', function () {
+                        $('#card_style').css({
+                            'min-height': '50px'
+                        });
+                        $("#more_card").slideUp('slow');
+                        $("#show").show();
+                        $("#hide").hide();
+                    });
+
+                } else {
+                    $("#more_card").slideUp('slow');
+                    $("#show").show();
+                    $("#hide").hide();
+                }
+
+
+            });
+
+            $("#show").click(function () {
+                addGoogleAnalyticsAction('/pl/standard/co/summary/metody_platnosci/pokaz');
+                $("#more_card").slideDown('slow', function () {
+
+                    var hCard = $('#card_style').parent().attr('id');
+                    if (hCard == 'more_card') {
+
+                        var pass = $('.disposableCreditCard input').attr("checked");
+                        if (pass == true) {
+                            var pass2 = $('#normalCardInfoTable').css("display");
+                            if (pass2 != 'none') {
+                                var coll3 = $('#error_number_container').css('display');
+                                var coll4 = $('#error_date_container').css('display');
+                                var coll5 = $('#error_cvv_container').css('display');
+                                i = 0;
+                                if (coll3 != 'none') {
+                                    i++;
+                                }
+                                if (coll4 != 'none') {
+                                    i++;
+                                }
+                                if (coll5 != 'none') {
+                                    i++;
+                                }
+                                ile = (i * 30) + 235;
+                                $('#card_style').css({
+                                    'min-height': '' + ile + 'px',
+                                    'width': 'auto'
+                                });
+
+                                $('#card_container').css({
+                                    'display': 'block',
+                                    'margin': '0 0 0 -79px',
+                                    'position': 'absolute',
+                                    'width': '575px'
+                                });
+                                $('#card_container').fadeIn('slow');
+                            } else {
+                                $('#card_container').fadeIn('slow');
+                            }
+
+                        }
+                    }
+
+                });
+                $("#show").hide();
+                $("#hide").show();
+
+            });
+
+            $('#card_saved_chkbox').click(function () {
+                var pass = $('#card_saved_chkbox').attr('checked');
+                if (pass == true) {
+                    $('#cardSavedInput').attr('checked', true);
+                } else {
+                    $('#cardSavedInput').attr('checked', false);
+                }
+            });
+
+            $('.cardMethod.installment span.info-icon').qtip({
+                content: {text: '<span class="blue">Raty PayU<\/span> - nowa metoda płatności ONLINE.<br /> Udane zakupy nawet w kilka minut!<br /><br />Jak zapłacić przez <span class="blue">raty PayU<\/span>:<ul><li>Wybierz <span class="blue">raty PayU<\/span> jako metodę płatności<\/li><li>Wypełnij wniosek, poczekaj na weryfikację partnera pożyczkowego<\/li><li>Zatwierdź umowę kredytową JEDNYM KLIKNIĘCIEM<\/li><\/ul>Bez wychodzenia z domu, bez zbędnych formalności, bez dokumentowania dochodu!'},
+                position: {corner: {target: 'topLeft', tooltip: 'bottomLeft'}},
+                style: {
+                    name: 'dark',
+                    padding: '7px 13px',
+                    background: '#ffffff',
+                    textAlign: 'left',
+                    color: '#8c9399',
+                    border: {color: '#a6c307', radius: 3, width: 1},
+                    width: {max: 320, min: 320},
+                    tip: true
+                }
+            });
+
+            $('.cardMethod.delayedPayment span.info-icon').qtip({
+                content: {text: 'Ciesz się swoim zakupem i zapłać wygodnie w ciągu 30 dni'},
+                position: {corner: {target: 'topLeft', tooltip: 'bottomLeft'}},
+                style: {
+                    name: 'dark',
+                    padding: '7px 13px',
+                    background: '#ffffff',
+                    textAlign: 'left',
+                    color: '#8c9399',
+                    border: {color: '#a6c307', radius: 3, width: 1},
+                    width: {max: 320, min: 320},
+                    tip: true
+                }
+            });
+
+            $('#card-info').qtip({
+                content: {text: 'Kod CVV2/CVC2 znajdziesz na odwrocie karty - są to 3 (lub 4) ostatnie cyfry numeru wydrukowanego na białym pasku przeznaczonym na Twój podpis lub - w przypadku niektórych kart Visa i MasterCard - cyfry znajdujące się po prawej stronie paska podpisu.<div style="margin:15px"><img src="/pl/standard/co/images/card_cvv.3929e16d396d93639dce4785454fd252.png" alt="" title=""  ><\/div>'},
+                position: {corner: {target: 'topLeft', tooltip: 'bottomLeft'}},
+                style: {
+                    name: 'dark',
+                    padding: '7px 13px',
+                    background: '#ffffff',
+                    color: '#8c9399',
+                    border: {color: '#a6c307', radius: 3, width: 1},
+                    width: {max: 320, min: 320},
+                    tip: true
+                }
+            });
+
+            $('.singleCardInfoTable .paymetUnavailableQtip').qtip({
+                content: {text: 'Za ten produkt nie możesz zapłacić kartą. Wybierz inną metodę płatności.'},
+                position: {corner: {target: 'topLeft', tooltip: 'bottomLeft'}},
+                style: {
+                    name: 'dark',
+                    padding: '7px 13px',
+                    background: '#ffffff',
+                    color: '#8c9399',
+                    border: {color: '#a6c307', radius: 3, width: 1},
+                    width: {max: 320, min: 320},
+                    tip: true
+                }
+            });
+
+            $('.singleCardInfoTable .expiredCardQtip').qtip({
+                content: {text: 'Nie możesz zapłacić tą kartą płatniczą, gdyż upłynął jej termin ważności. Dodaj nową kartę.'},
+                position: {corner: {target: 'topLeft', tooltip: 'bottomLeft'}},
+                style: {
+                    name: 'dark',
+                    padding: '7px 13px',
+                    background: '#ffffff',
+                    color: '#8c9399',
+                    border: {color: '#a6c307', radius: 3, width: 1},
+                    width: {max: 320, min: 320},
+                    tip: true
+                }
+            });
+
+            $('.singleCardInfoTable .paymentTokenUnavailableQtip').qtip({
+                content: {text: 'Usługa czasowo niedostępna. Wybierz inną metodę płatności.'},
+                position: {corner: {target: 'topLeft', tooltip: 'bottomLeft'}},
+                style: {
+                    name: 'dark',
+                    padding: '7px 13px',
+                    background: '#ffffff',
+                    color: '#8c9399',
+                    border: {color: '#a6c307', radius: 3, width: 1},
+                    width: {max: 320, min: 320},
+                    tip: true
+                }
+            });
+
+            $('.singleCardInfoTable .paymentTokenBlockedQtip').qtip({
+                content: {text: 'Usługa zablokowana. Skontaktuj się z Biurem Obsługi Klienta PayU lub z bankiem.'},
+                position: {corner: {target: 'topLeft', tooltip: 'bottomLeft'}},
+                style: {
+                    name: 'dark',
+                    padding: '7px 13px',
+                    background: '#ffffff',
+                    color: '#8c9399',
+                    border: {color: '#a6c307', radius: 3, width: 1},
+                    width: {max: 320, min: 320},
+                    tip: true
+                }
+            });
+
+            $('.singleCardInfoTable .paymentTokenEditDescriptionQtip').qtip({
+                content: {text: 'Jeżeli chcesz, możesz edytować nazwę swojego konta bankowego. Aby to zrobić, po zakończeniu transakcji zaloguj się do Konta PayU i przejdź do zakładki "Metody Płatności".'},
+                position: {corner: {target: 'topLeft', tooltip: 'bottomLeft'}},
+                style: {
+                    name: 'dark',
+                    padding: '7px 13px',
+                    background: '#ffffff',
+                    color: '#8c9399',
+                    border: {color: '#a6c307', radius: 3, width: 1},
+                    width: {max: 320, min: 320},
+                    tip: true
+                }
+            });
+
+            $('.cardMethod.disabled img').qtip({
+                position: {corner: {target: 'topLeft', tooltip: 'bottomLeft'}},
+                style: {
+                    name: 'dark',
+                    padding: '7px 13px',
+                    background: '#ffffff',
+                    color: '#8c9399',
+                    border: {color: '#a6c307', radius: 3, width: 1},
+                    width: {max: 320, min: 320},
+                    tip: true
+                }
+            });
+
+            $('#more_card').find("input").each(function (i, el) {
+                if ($(el).attr('checked')) {
+                    $('#show').click();
+                }
+            });
+
+            $(".singlePaymentMethod img").click(function () {
+                var parent = $(this).parent().get(0);
+                if ($(parent).children('input').is(":enabled"))
+
+                    $(parent).children('input').attr('checked', 'checked');
+            });
+
+            hidePreAgreeFinProductOffer();
+            $('input:radio[name=paymentMethodId]:checked').click();
+
+            
+            
+            
+            $('#show').click();
+            
+            
+        });
+
+        // ]]>
+    </script>
+
+</div>
+<div class="cartRight">
+<h3 class="cufon blue"></h3>
+
+    
+    
+        <input id="selectAddress" name="addressIndex" value="" type="hidden">
+    
+
+
+
+
+
+    <h3 class="cufon blue"><cufon style="width: 40px; height: 16px;" alt="Dane " class="cufon cufon-canvas"><canvas style="width: 53px; height: 18px; top: -2px; left: -1px;" height="18" width="53"></canvas><cufontext>Dane </cufontext></cufon><cufon style="width: 81px; height: 16px;" alt="kupującego" class="cufon cufon-canvas"><canvas style="width: 89px; height: 18px; top: -2px; left: -1px;" height="18" width="89"></canvas><cufontext>kupującego</cufontext></cufon></h3>
+
+
+
+    
+        
+
+
+
+
+
+
+<div id="userData" class="form_inputs">
+	<table>
+		<tbody>
+			<tr style="display: none;" id="firstNameRowFixed">
+                <td class="cartLeftTblFirstTd"><label class="label">Imię</label></td>                              
+                <td class="cartLeftTblSecondTd inlineLabel" id="formRecipientName"></td>
+            </tr>
+            <tr style="display: table-row;" id="firstNameRowEditable">
+                <td class="formTableLabel">
+                    <label class="label">Imię</label>
+                </td>
+                <td>
+                    <div class="formRow">
+                        <input id="name" name="name" tabindex="110" class="required input maxLength" type="text">
+                        
+                    </div>
+                </td>
+            </tr>
+            <tr style="display: none;" id="lastNameRowFixed">
+				<td class="cartLeftTblFirstTd"><label class="label">Nazwisko</label></td>                               
+				<td class="cartLeftTblSecondTd inlineLabel" id="formRecipientLastName"></td>
+            </tr>
+            <tr style="display: table-row;" id="lastNameRowEditable">
+                <td class="formTableLabel">
+                    <label class="label">Nazwisko</label>
+                </td>
+                <td>
+                    <div class="formRow">
+                        <input id="surname" name="surname" tabindex="110" class="required input maxLength" type="text">
+                        
+                    </div>
+                </td>
+            </tr>
+			<tr>
+				<td class="formTableLabel">
+					<label class="label">E-mail</label>
+				</td>
+				<td>
+					<div class="formRow">
+						<input id="email" name="email" tabindex="130" class="required input maxLength summaryEmail" type="text">
+						
+					</div>
+				</td>
+			</tr>
+			<tr id="formPhoneNumberEditable">
+				<td class="formTableLabel">
+					<label class="label">Numer telefonu</label>
+				</td>
+				<td>
+					<div class="formRow">
+						<input id="phoneNumber" name="phoneNumber" tabindex="140" class="input maxLength" type="text">
+						
+					</div>
+				</td>
+			</tr>						
+		</tbody>
+	</table>
+</div>
+<script type="text/javascript">
+    //<![CDATA[
+    setCustomerNameEditable();
+    //]]>
+</script>
+    
+    
+
+
+
+    <div class="fVatCheckbox clr">
+        <div class="nxtCheck"><input id="invoiceCheckbox" name="invoice" tabindex="150" value="true" type="checkbox"><input name="_invoice" value="on" type="hidden"></div>
+        
+        
+        
+            <label for="invoiceCheckbox">Chcę otrzymać fakturę</label>
+        
+        
+        <div class="clr"></div>
+    </div>
+    <div id="change_vat" style="display: none;">
+        <h3 class="cufon blue"><cufon style="width: 40px; height: 16px;" alt="Dane " class="cufon cufon-canvas"><canvas style="width: 53px; height: 18px; top: -2px; left: -1px;" height="18" width="53"></canvas><cufontext>Dane </cufontext></cufon><cufon style="width: 22px; height: 16px;" alt="do " class="cufon cufon-canvas"><canvas style="width: 35px; height: 18px; top: -2px; left: -1px;" height="18" width="35"></canvas><cufontext>do </cufontext></cufon><cufon style="width: 50px; height: 16px;" alt="faktury" class="cufon cufon-canvas"><canvas style="width: 59px; height: 18px; top: -2px; left: -1px;" height="18" width="59"></canvas><cufontext>faktury</cufontext></cufon></h3>
+
+        <div class="form_inputs">
+            <div class="form_row">
+                <div class="label">Nazwa firmy / Imię i nazwisko</div><input id="invoiceName" name="invoiceName" tabindex="160" class="required input vat maxLength" type="text">
+                
+            </div>
+            <div class="form_row">
+                <div class="label">NIP</div>
+                <input id="invoiceNip" name="invoiceNip" tabindex="170" class="required input vat" maxlength="15" type="text">
+                
+            </div>
+
+            <div class="form_row">
+                <div class="label">Ulica</div>
+                <input id="invoiceStreet" name="invoiceStreet" tabindex="180" class="required input vat maxLength" type="text">
+                
+                    
+                
+            </div>
+
+            <div class="form_row">
+                <div class="label">
+                    Nr domu / mieszkania
+                </div>
+                <input id="invoiceStreetHn" name="invoiceStreetHn" tabindex="190" style="width:74px;" class="input vat maxLengthHn" size="5" maxlength="16" type="text">
+                <span class="slash"> / </span><input id="invoiceStreetAn" name="invoiceStreetAn" tabindex="200" style="width:70px;float:left" class="input maxLengthHn" size="5" maxlength="16" type="text">
+                
+            </div>
+            <div class="form_row">
+                <div class="label"><label class="formL">Kod pocztowy</label></div><input id="invoicePostCode" name="invoicePostCode" tabindex="210" class="required input vat maxLength" type="text">
+                
+            </div>
+            <div class="form_row">
+                <div class="label">Miejscowość</div><input id="invoiceCity" name="invoiceCity" tabindex="220" class="required input vat maxLength" type="text">
+                
+            </div>
+            <div class="form_row">
+                <div class="label">Kraj</div>
+                <select disabled="disabled" id="invoiceCountry" name="invoiceCountry" class="formInput required vat" tabindex="230">
+                    <option selected="selected" value="">...</option>
+                    
+                        <option value="AF">Afganistan</option>
+                    
+                        <option value="AL">Albania</option>
+                    
+                        <option value="DZ">Algieria</option>
+                    
+                        <option value="AD">Andora</option>
+                    
+                        <option value="AO">Angola</option>
+                    
+                        <option value="AI">Anguilla</option>
+                    
+                        <option value="AG">Antigua i Barbuda</option>
+                    
+                        <option value="AN">Antyle Holenderskie</option>
+                    
+                        <option value="SA">Arabia Saudyjska</option>
+                    
+                        <option value="AR">Argentyna</option>
+                    
+                        <option value="AM">Armenia</option>
+                    
+                        <option value="AW">Aruba</option>
+                    
+                        <option value="AU">Australia</option>
+                    
+                        <option value="AT">Austria</option>
+                    
+                        <option value="AZ">Azerbejdżan</option>
+                    
+                        <option value="BS">Bahamy</option>
+                    
+                        <option value="BH">Bahrajn</option>
+                    
+                        <option value="BD">Bangladesz</option>
+                    
+                        <option value="BB">Barbados</option>
+                    
+                        <option value="BE">Belgia</option>
+                    
+                        <option value="BZ">Belize</option>
+                    
+                        <option value="BJ">Benin</option>
+                    
+                        <option value="BM">Bermudy</option>
+                    
+                        <option value="BT">Bhutan</option>
+                    
+                        <option value="BY">Białoruś</option>
+                    
+                        <option value="MM">Birma</option>
+                    
+                        <option value="BO">Boliwia</option>
+                    
+                        <option value="BA">Bośnia i Hercegowina</option>
+                    
+                        <option value="BW">Botswana</option>
+                    
+                        <option value="BR">Brazylia</option>
+                    
+                        <option value="BN">Brunei</option>
+                    
+                        <option value="IO">Brytyjskie Terytorium Oceanu Indyjskiego</option>
+                    
+                        <option value="BG">Bułgaria</option>
+                    
+                        <option value="BF">Burkina Faso</option>
+                    
+                        <option value="BI">Burundi</option>
+                    
+                        <option value="CL">Chile</option>
+                    
+                        <option value="CN">Chiny</option>
+                    
+                        <option value="HR">Chorwacja</option>
+                    
+                        <option value="CW">Curaçao</option>
+                    
+                        <option value="CY">Cypr</option>
+                    
+                        <option value="TD">Czad</option>
+                    
+                        <option value="ME">Czarnogóra</option>
+                    
+                        <option value="CZ">Czechy</option>
+                    
+                        <option value="UM">Dalekie Wyspy Mniejsze Stanów Zjednoczonych</option>
+                    
+                        <option value="DK">Dania</option>
+                    
+                        <option value="CD">Demokratyczna Republika Konga</option>
+                    
+                        <option value="DM">Dominika</option>
+                    
+                        <option value="VG">Dziewicze Wyspy Brytyjskie</option>
+                    
+                        <option value="VI">Dziewicze Wyspy Stanów Zjednoczonych</option>
+                    
+                        <option value="DJ">Dżibuti</option>
+                    
+                        <option value="EG">Egipt</option>
+                    
+                        <option value="EC">Ekwador</option>
+                    
+                        <option value="ER">Erytrea</option>
+                    
+                        <option value="EE">Estonia</option>
+                    
+                        <option value="ET">Etiopia</option>
+                    
+                        <option value="FK">Falklandy</option>
+                    
+                        <option value="FJ">Fidżi</option>
+                    
+                        <option value="PH">Filipiny</option>
+                    
+                        <option value="FI">Finlandia</option>
+                    
+                        <option value="FR">Francja</option>
+                    
+                        <option value="TF">Francuskie Terytoria Zamorskie</option>
+                    
+                        <option value="GA">Gabon</option>
+                    
+                        <option value="GM">Gambia</option>
+                    
+                        <option value="GS">Georgia Południowa i Sandwich Południowy</option>
+                    
+                        <option value="GH">Ghana</option>
+                    
+                        <option value="GI">Gibraltar</option>
+                    
+                        <option value="GR">Grecja</option>
+                    
+                        <option value="GD">Grenada</option>
+                    
+                        <option value="GL">Grenlandia</option>
+                    
+                        <option value="GE">Gruzja</option>
+                    
+                        <option value="GU">Guam</option>
+                    
+                        <option value="GG">Guernsey</option>
+                    
+                        <option value="GY">Gujana</option>
+                    
+                        <option value="GF">Gujana Francuska</option>
+                    
+                        <option value="GP">Gwadelupa</option>
+                    
+                        <option value="GT">Gwatemala</option>
+                    
+                        <option value="GN">Gwinea</option>
+                    
+                        <option value="GW">Gwinea-Bissau</option>
+                    
+                        <option value="GQ">Gwinea Równikowa</option>
+                    
+                        <option value="HT">Haiti</option>
+                    
+                        <option value="ES">Hiszpania</option>
+                    
+                        <option value="NL">Holandia</option>
+                    
+                        <option value="HN">Honduras</option>
+                    
+                        <option value="HK">Hong Kong</option>
+                    
+                        <option value="IN">Indie</option>
+                    
+                        <option value="ID">Indonezja</option>
+                    
+                        <option value="IQ">Irak</option>
+                    
+                        <option value="IR">Iran</option>
+                    
+                        <option value="IE">Irlandia</option>
+                    
+                        <option value="IS">Islandia</option>
+                    
+                        <option value="IL">Izrael</option>
+                    
+                        <option value="JM">Jamajka</option>
+                    
+                        <option value="JP">Japonia</option>
+                    
+                        <option value="YE">Jemen</option>
+                    
+                        <option value="JE">Jersey</option>
+                    
+                        <option value="JO">Jordan</option>
+                    
+                        <option value="KY">Kajmany</option>
+                    
+                        <option value="KH">Kambodża</option>
+                    
+                        <option value="CM">Kamerun</option>
+                    
+                        <option value="CA">Kanada</option>
+                    
+                        <option value="BQ">Karaiby Holenderskie</option>
+                    
+                        <option value="QA">Katar</option>
+                    
+                        <option value="KZ">Kazachstan</option>
+                    
+                        <option value="KE">Kenia</option>
+                    
+                        <option value="KG">Kirgistan</option>
+                    
+                        <option value="KI">Kiribati</option>
+                    
+                        <option value="CO">Kolumbia</option>
+                    
+                        <option value="KM">Komory</option>
+                    
+                        <option value="CG">Kongo</option>
+                    
+                        <option value="KR">Korea Południowa</option>
+                    
+                        <option value="KP">Korea Północna</option>
+                    
+                        <option value="QZ">Kosowo</option>
+                    
+                        <option value="CR">Kostaryka</option>
+                    
+                        <option value="CU">Kuba</option>
+                    
+                        <option value="KW">Kuwejt</option>
+                    
+                        <option value="LA">Laos</option>
+                    
+                        <option value="LS">Lesoto</option>
+                    
+                        <option value="LB">Liban</option>
+                    
+                        <option value="LR">Liberia</option>
+                    
+                        <option value="LY">Libia</option>
+                    
+                        <option value="LI">Liechtenstein</option>
+                    
+                        <option value="LT">Litwa</option>
+                    
+                        <option value="LU">Luksemburg</option>
+                    
+                        <option value="LV">Łotwa</option>
+                    
+                        <option value="MO">Macao</option>
+                    
+                        <option value="MK">Macedonia</option>
+                    
+                        <option value="MG">Madagaskar</option>
+                    
+                        <option value="YT">Majotta</option>
+                    
+                        <option value="MW">Malawi</option>
+                    
+                        <option value="MV">Malediwy</option>
+                    
+                        <option value="MY">Malezja</option>
+                    
+                        <option value="ML">Mali</option>
+                    
+                        <option value="MT">Malta</option>
+                    
+                        <option value="MP">Mariany Północne</option>
+                    
+                        <option value="MA">Maroko</option>
+                    
+                        <option value="MQ">Martynika</option>
+                    
+                        <option value="MR">Mauretania</option>
+                    
+                        <option value="MU">Mauritius</option>
+                    
+                        <option value="MX">Meksyk</option>
+                    
+                        <option value="FM">Mikronezja</option>
+                    
+                        <option value="MD">Mołdawia</option>
+                    
+                        <option value="MC">Monako</option>
+                    
+                        <option value="MN">Mongolia</option>
+                    
+                        <option value="MS">Montserrat</option>
+                    
+                        <option value="MZ">Mozambik</option>
+                    
+                        <option value="NA">Namibia</option>
+                    
+                        <option value="NR">Nauru</option>
+                    
+                        <option value="NP">Nepal</option>
+                    
+                        <option value="DE">Niemcy</option>
+                    
+                        <option value="NE">Niger</option>
+                    
+                        <option value="NG">Nigeria</option>
+                    
+                        <option value="NI">Nikaragua</option>
+                    
+                        <option value="NU">Niue</option>
+                    
+                        <option value="NO">Norwegia</option>
+                    
+                        <option value="NC">Nowa Kaledonia</option>
+                    
+                        <option value="NZ">Nowa Zelandia</option>
+                    
+                        <option value="OM">Oman</option>
+                    
+                        <option value="PK">Pakistan</option>
+                    
+                        <option value="PW">Palau</option>
+                    
+                        <option value="PA">Panama</option>
+                    
+                        <option value="PG">Papua Nowa Gwinea</option>
+                    
+                        <option value="PY">Paragwaj</option>
+                    
+                        <option value="PE">Peru</option>
+                    
+                        <option value="PN">Pitcairn</option>
+                    
+                        <option value="PF">Polinezja Francuska</option>
+                    
+                        <option value="PL">Polska</option>
+                    
+                        <option value="PR">Portoryko</option>
+                    
+                        <option value="PT">Portugalia</option>
+                    
+                        <option value="DO">Republika Dominikany</option>
+                    
+                        <option value="ZA">Republika Południowej Afryki</option>
+                    
+                        <option value="CF">Republika Środkowoafrykańska</option>
+                    
+                        <option value="CV">Republika Zielonego Przylądka</option>
+                    
+                        <option value="RE">Reunion</option>
+                    
+                        <option value="RU">Rosja</option>
+                    
+                        <option value="RO">Rumunia</option>
+                    
+                        <option value="RW">Rwanda</option>
+                    
+                        <option value="EH">Sahara Zachodnia</option>
+                    
+                        <option value="KN">Saint Christopher i Nevis</option>
+                    
+                        <option value="LC">Saint Lucia</option>
+                    
+                        <option value="PM">Saint Pierre i Miquelon</option>
+                    
+                        <option value="VC">Saint Vincent i Grenadyny</option>
+                    
+                        <option value="SV">Salwador</option>
+                    
+                        <option value="WS">Samoa</option>
+                    
+                        <option value="AS">Samoa Amerykańskie</option>
+                    
+                        <option value="SM">San Marino</option>
+                    
+                        <option value="SN">Senegal</option>
+                    
+                        <option value="RS">Serbia</option>
+                    
+                        <option value="CS">Serbia i Czarnogóra</option>
+                    
+                        <option value="SC">Seszele</option>
+                    
+                        <option value="SL">Sierra Leone</option>
+                    
+                        <option value="SG">Singapur</option>
+                    
+                        <option value="SX">Sint Maarten</option>
+                    
+                        <option value="SK">Słowacja</option>
+                    
+                        <option value="SI">Słowenia</option>
+                    
+                        <option value="SO">Somalia</option>
+                    
+                        <option value="LK">Sri Lanka</option>
+                    
+                        <option value="US">Stany Zjednoczone Ameryki</option>
+                    
+                        <option value="SZ">Suazi</option>
+                    
+                        <option value="SD">Sudan</option>
+                    
+                        <option value="SS">Sudan Południowy</option>
+                    
+                        <option value="SR">Surinam</option>
+                    
+                        <option value="SJ">Svalbard i Jan Mayen</option>
+                    
+                        <option value="SY">Syria</option>
+                    
+                        <option value="CH">Szwajcaria</option>
+                    
+                        <option value="SE">Szwecja</option>
+                    
+                        <option value="TJ">Tadżykistan</option>
+                    
+                        <option value="TH">Tajlandia</option>
+                    
+                        <option value="TW">Tajwan</option>
+                    
+                        <option value="TZ">Tanzania</option>
+                    
+                        <option value="TL">Timor Wschodni</option>
+                    
+                        <option value="TG">Togo</option>
+                    
+                        <option value="TK">Tokelau</option>
+                    
+                        <option value="TO">Tonga</option>
+                    
+                        <option value="TT">Trynidad i Tobago</option>
+                    
+                        <option value="TN">Tunezja</option>
+                    
+                        <option value="TR">Turcja</option>
+                    
+                        <option value="TM">Turkmenistan</option>
+                    
+                        <option value="TV">Tuvalu</option>
+                    
+                        <option value="UG">Uganda</option>
+                    
+                        <option value="UA">Ukraina</option>
+                    
+                        <option value="UY">Urugwaj</option>
+                    
+                        <option value="UZ">Uzbekistan</option>
+                    
+                        <option value="UZ">Uzbekistan</option>
+                    
+                        <option value="VU">Vanuatu</option>
+                    
+                        <option value="WF">Wallis i Futuna</option>
+                    
+                        <option value="VA">Watykan</option>
+                    
+                        <option value="VE">Wenezuela</option>
+                    
+                        <option value="HU">Węgry</option>
+                    
+                        <option value="GB">Wielka Brytania</option>
+                    
+                        <option value="VN">Wietnam</option>
+                    
+                        <option value="IT">Włochy</option>
+                    
+                        <option value="CI">Wybrzeże Kości Słoniowej</option>
+                    
+                        <option value="CX">Wyspa Bożego Narodzenia</option>
+                    
+                        <option value="IM">Wyspa Man</option>
+                    
+                        <option value="NF">Wyspa Norfolk</option>
+                    
+                        <option value="MF">Wyspa Świętego Marcina</option>
+                    
+                        <option value="SH">Wyspa Świętej Heleny</option>
+                    
+                        <option value="AX">Wyspy Alandzkie</option>
+                    
+                        <option value="CK">Wyspy Cooka</option>
+                    
+                        <option value="CC">Wyspy Kokosowe</option>
+                    
+                        <option value="FO">Wyspy Owcze</option>
+                    
+                        <option value="SB">Wyspy Salomona</option>
+                    
+                        <option value="ST">Wyspy Świętego Tomasza i Książęca</option>
+                    
+                        <option value="TC">Wyspy Turks i Caicos</option>
+                    
+                        <option value="ZM">Zambia</option>
+                    
+                        <option value="ZW">Zimbabwe</option>
+                    
+                        <option value="AE">Zjednoczone Emiraty Arabskie</option>
+                    
+                </select>
+                
+            </div>
+            
+        </div>
+    </div>
+
+
+<div class="form_row" id="HidePesel" style="display:none">
+    
+        <div class="label">PESEL</div><input id="peselId" name="pesel" tabindex="240" class="pesel input" onfocus="addGoogleAnalyticsAction('/pl/standard/co/summary/form_fields/pesel/edit');" type="text">
+        
+    
+</div>
+
+
+    
+        
+            <div class="form_row frame pok">
+                <div class="pok_wraper">
+                    <div class="pok_wraper_checkbox"><input id="acceptPok" name="createAccount" tabindex="31" value="true" type="checkbox"><input name="_createAccount" value="on" type="hidden"></div>
+                    <label for="acceptPok">Chcesz aby Twoje zakupy były objęte Programem Ochrony Kupujących? Użyj tych danych do założenia konta PayU<span class="pok_qtip" id="pok_qtip"></span></label>
+                </div>
+            </div>
+        
+        
+    
+
+
+
+
+
+    <div id="acceptRulesBox" class="fVatCheckbox clr">
+        <div class="acceptRow">
+            <div class="nxtCheck"><input id="acceptRules" name="acceptRules" tabindex="30" class="rulesRequired" value="true" checked="checked" type="checkbox"><input name="_acceptRules" value="on" type="hidden"></div>
+            <label for="acceptRules">
+
+                Akceptuję
+                <a href="https://static.payu.com/sites/terms/files/Regulamin_pojedynczej_transakcji_platniczej_PayU.pdf" target="_blank" onclick="window.open('https://static.payu.com/sites/terms/files/Regulamin_pojedynczej_transakcji_platniczej_PayU.pdf', 'tos', 'height=600,width=950'); return false;" tabindex="31">Regulamin pojedynczej transakcji płatniczej PayU</a>
+                i płacę
+                    
+
+            </label>
+            
+                
+            
+            <div id="acceptClr" class="clr"></div>
+        </div>
+    </div>
+
+
+
+
+<div class="cartBottomRight">
+    <input class="cufon" id="actionForm" style="display:none;" value="Płacę 10,00 PLN" name="_eventId_submit" tabindex="250" type="submit">
+    <input id="invokePay" onclick="invokePayProcess();" value="Płacę 10,00 PLN" tabindex="250" class="button-big" type="button">
+    <input id="refreshTrigger" name="_eventId_refreshSummary" style="display:none;" type="submit">
+    
+</div>
+</div>
+</div>
+<div class="grad_cont"></div>
+</div>
+
+<input id="hasUserPesel" name="hasUserPesel" value="false" type="hidden">
+
+<input name="csrff3953a5f42d8453eb9a0a8bc592583ff" value="fe8ac359ff41415a923f5d8c093eea7b" type="hidden">
+</form>
+
+
+
+
+
+
+
+<div class="cookies">
+    Zalogowanie oznacza akceptację <a target="_blank" href="https://static.payu.com/sites/terms/files/REGULAMIN_SWIADCZENIA_USLUGI_PAYU.pdf">Regulaminu</a> w aktualnym brzmieniu.<br><br>Strona korzysta z plików cookies w celu realizacji usług i zgodnie z <a target="_blank" href="https://static.payu.com/sites/terms/files/Polityka_plikow_cookies.pdf">Polityką Plików Cookies</a>. Możesz określić warunki przechowywania lub dostępu do plików cookies w Twojej przeglądarce.
+</div>
+
+	<div id="psd">
+	<div class="div_psd">Zlecenie PayU S.A. realizacji płatności: </div>
+	<ul class="ul_psd">
+		<li class="li_psd">1) usługę wykonuje PayU S.A., </li>
+		<li class="li_psd">2) dane odbiorcy, tytuł oraz kwota płatności dostarczane są PayU S.A. przez odbiorcę, </li>
+		<li class="li_psd">3) zlecenie jest przekazywane do realizacji po otrzymaniu przez PayU S.A. wpłaty, </li>
+		<li class="li_psd">4) płatność udostępniana jest odbiorcy w ciągu 1 godziny, nie później niż do końca następnego dnia roboczego,</li>
+        
+		    <li class="li_psd">5) PayU S.A. nie pobiera opłaty od realizacji usługi.</li>
+        
+        
+	</ul>
+	<div class="div_psd">
+        
+            <a href="https://static.payu.com/sites/terms/files/psd_pl.pdf" target="_blank">Pobierz powyższe informacje w formacie PDF</a>
+        
+        
+	</div>
+
+
+
+<script type="text/javascript">
+    //<![CDATA[
+    function updateCommissionPSDUrl(commisionFee, payType) {
+        $('#commissionPSDUrl').attr('href', 'commission/psd?commissionFee=' + commisionFee + '&payType=' + payType);
+    }
+    //]]>
+</script>
+
+
+
+
+<div id="footer">
+	<div class="footCopy">
+		<span class="copy">© PayU SA</span>
+		<ul id="footerLinks">
+			<li><a href="https://www.payu.pl/o-payu" target="_blank">O firmie</a></li>
+			<li class="last"><a href="https://static.payu.com/sites/terms/files/REGULAMIN_SWIADCZENIA_USLUGI_PAYU.pdf" target="_blank">Regulamin</a></li>
+			
+		</ul>
+	</div>
+	<div class="footLogos">
+		<ul>
+			<li><img src="{% static "payment_agreement/footLogo2.png" %}" alt="" title=""></li>
+			<li><img src="{% static "payment_agreement/footLogo3.png" %}" alt="" title=""></li>
+			<li><img src="{% static "payment_agreement/footLogo4.png" %}" alt="" title=""></li>
+		</ul>
+    </div>
+</div>
+
+
+    <iframe id="loginFrame" style="display: none" src="#" scrolling="no"></iframe>
+
+</div>
+
+<script type="text/javascript" src="{% static "payment_agreement/jquery_008.js" %}"></script>
+<script type="text/javascript" src="{% static "payment_agreement/jquery_002.js" %}"></script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+function closeAlertBox(sender) {  $("#" + sender).fadeOut('fast', function(){ UnregisteredCardJsLib.recalculate();});  }
+
+$.alerts.okButton = 'Tak';
+$.alerts.cancelButton = 'Anuluj';
+
+$('#selectAddress, #countryCode, #lang, .countryCode.required ').selectBox();
+Cufon.replace('.topMenu ul li a, .topHelloMsg, .contentInnerLeft span, .cufon'); // Works without a selector engine
+
+
+$(document).ready(function() {
+    
+
+    
+    $('#login-box-show').click(function() {
+        login('showLoginPopup', '430px');
+    });
+    $("#login-box-show").one("click", preventMultiClick);
+    
+
+    
+
+    
+    $('#pok_qtip').qtip({
+        content: {text: 'Zakładając konto PayU zarówno ta transakcja, jak i kolejne realizowane poprzez konto PayU, objęte będą Programem Ochrony Kupujących. Szczegółowa lista towarów objętych Programem znajduje się na stronie <a href="http://www.pok.payu.pl" target="_blank">www.pok.payu.pl<\/a>' },
+        position: {corner: { target: 'topRight', tooltip: 'bottomRight' }},
+        hide: { fixed: true },
+        style: {name: 'dark', lineHeight:'20px', padding: '7px 13px', background: '#ffffff',	color: '#8c9399', border: {color: '#a6c307', radius: 3, width: 1}, width:  {max: 320, min: 320}, tip: true}
+    });
+    
+
+    $('#selectAddress').change(function(){
+        addGoogleAnalyticsAction('/pl/standard/co/summary/shipping_cost/change');
+        changeAddress();
+        $("#refreshTrigger").click();
+    });
+
+    $('#acceptPok').change(function(){
+        var chkBoxVal = $('#acceptPok').is(':checked');
+        if(chkBoxVal){
+            addGoogleAnalyticsAction('/pl/standard/co/summary/setup_account/pok/yes');
+        } else {
+            addGoogleAnalyticsAction('/pl/standard/co/summary/setup_account/pok/no');
+        }
+    });
+
+    $('#w').change(function(){
+        var chkBoxVal = $('#w').is(':checked');
+        if(chkBoxVal){
+            addGoogleAnalyticsAction('/pl/standard/co/summary/setup_account/yes');
+        } else {
+            addGoogleAnalyticsAction('/pl/standard/co/summary/setup_account/no');
+        }
+    });
+
+    $('#delivery_method').change(function(){
+        var updateButton = $(".installment input:checked").length == 0;
+        changeShippingCost(updateButton);
+        
+    });
+
+    $('.disable').attr('disabled','disabled');
+
+    $('#actionForm').click(function(){$('#white_overlay').show();});
+
+    changeAddress();
+
+    var installmentsChecked = $(".installment input:checked").length == 1;
+    if (installmentsChecked) {
+        setInstallmentsButton();
+        changeShippingCost(false);
+    } else {
+        
+        
+        setDefaultButton();
+        changeShippingCost(true);
+        
+    }
+});
+
+function displayOtherAddress(display){
+    var otherAddressDiv = document.getElementById("address_option_other");
+    if(!otherAddressDiv){
+        return;
+    }
+
+    if(display) {
+        otherAddressDiv.style.display="";
+    } else {
+        otherAddressDiv.style.display="none";
+    }
+}
+
+function changeAddress(){
+    var selectedAddress = $("#selectAddress").val();
+    if (selectedAddress && selectedAddress !='other'){
+        displayAddressTable(true);
+        displayOtherAddress(false);
+
+        $('#formRecipientName').html(address[$("#selectAddress").val()][1]);
+        $('#formRecipientStreet').html(address[$("#selectAddress").val()][2]);
+        $('#formRecipientStreetNumber').html(address[$("#selectAddress").val()][3]);
+        $('#formRecipientPostCode').html(address[$("#selectAddress").val()][4]);
+        $('#formRecipientCity').html(address[$("#selectAddress").val()][5]);
+        $('#formRecipientCountry').html(address[$("#selectAddress").val()][6]);
+    }
+    else{
+        displayAddressTable(false);
+        displayOtherAddress(true);
+    }
+}
+
+function displayAddressTable(display){
+    var addressTable = document.getElementById("addressTable");
+    if(!addressTable){
+        return;
+    }
+
+    if(display)
+        addressTable.style.display="";
+    else
+        addressTable.style.display="none";
+}
+
+function changeShippingCost(updateButton){
+    if ($("#delivery_method").length) {
+        var index = $("#delivery_method").attr("selectedIndex");
+
+        if (index != -1) {
+            chosenAvailableShippingCostIndex = index;
+            $("#totalSummaryAmount").html(availableShippingCost[index][2]);
+            $("#deliverySummaryAmount").html(availableShippingCost[index][1]);
+
+            if (updateButton) {
+                $("#invokePay").val('Płacę ' + availableShippingCost[index][2] );
+                $("#actionForm").val('Płacę ' + availableShippingCost[index][2] );
+            }
+
+            return true;
+        }
+    }
+
+    return false;
+}
+
+function changePayButtonValue(amount){
+    var payButtonLabel = 'Płacę ' + amount;
+    $("#invokePay").val(payButtonLabel);
+    $("#actionForm").val(payButtonLabel);
+}
+
+
+function login(eventId, height, cssPosition) {
+    cssPosition = typeof cssPosition !== 'undefined' ? cssPosition : 'fixed';
+    $('<div id="loginPopup" style="display:none"><\/div>').modal( {
+        overlayClose: true,
+        opacity:60,
+        containerCss: {position:cssPosition},
+        overlayCss: {backgroundColor:"#fff"},
+        onOpen: function (dialog) {
+            dialog.overlay.show();
+            dialog.container.slideDown('fast', function () {
+                dialog.data.fadeIn('fast',function() {
+                    $('#loginFrame').attr('src', '/pl/standard/co/summary?execution=e1s1&&_eventId=' + eventId);
+                    $('#loginFrame').attr({'width':'945px','height':height});
+                    $('#loginFrame').appendTo($('#loginPopup'));
+                    $('#loginFrame').css({'display':'block'});
+
+                });
+            });
+        },
+        onClose: function(dialog){
+            dialog.data.fadeOut('fast', function () {
+                dialog.container.slideUp('fast', function () {
+                    dialog.overlay.fadeOut('fast', function () {
+                        $('#loginFrame').css({'display':'none'});
+                        $('#loginFrame').appendTo($('#wrapper'));
+                        $.modal.close();
+                        location.reload();
+                    });
+                });
+            });
+        }
+    });
+}
+
+
+
+function newAccessToken(accessToken){
+    $("#paymentForm").attr("action", "/pl/standard/co/summary?execution=e1s1&newAccessToken="+accessToken+"&");
+    $('#actionForm').attr('name', '_eventId_reloadSummary').serialize();
+    $('#actionForm').click();
+}
+
+//]]>
+</script>
+
+
+
+
+<script type="text/javascript" src="{% static "payment_agreement/unregistered_card_common.js" %} "></script>
+
+<script type="text/javascript">
+    (function(window, $) {
+        var UnregisteredCardJsLib = window.UnregisteredCardJsLib;
+        UnregisteredCardJsLib.onSuccessfulJsLoadBeforeFormBuild = function() {
+            OpenPayU.model['2.0']['TokenCreateRequest'].mandatory[3] = '.card-cvv';
+        };
+        
+        UnregisteredCardJsLib.onSuccessfulJsLoadAfterFormBuild = function() {
+            $('#card-number').formatter({
+                "pattern": '{{9999}} {{9999}} {{9999}} {{9999}} {{999}}'
+            });
+            $("#card-number").attr("autocomplete","off");
+            $("#card-cvv").attr("autocomplete","off");
+            var topUnregisteredCardData = $('#card_style').position().top -  $('#top').height();
+            var leftUnregisteredCardData = '110';
+            var allUnregisteredCardData = topUnregisteredCardData + 'px 0 0 ' + leftUnregisteredCardData + 'px';
+            $('#unregisteredCardData').css({
+                'display' : 'block',
+                'margin' : allUnregisteredCardData,
+                'position' : 'absolute'
+            });
+        };
+
+        UnregisteredCardJsLib.tokenPresent['storedTokenPresent'] = 'false';
+        UnregisteredCardJsLib.tokenPresent['maskedCardNumber'] = '';
+        UnregisteredCardJsLib.tokenPresent['cardExpirationMonth'] = function() {
+            if ('' != '' && '' <= 9) {
+                return '0' + '';
+            } else {
+                return '';
+            }
+        };
+        UnregisteredCardJsLib.tokenPresent['cardExpirationYear'] = '';
+
+        UnregisteredCardJsLib.processTokenCreateResponseSuccess = function() {
+            $('#tokenInput').val(data.data.token);
+            $('#actionForm').click();
+        };
+
+        UnregisteredCardJsLib.processTokenCreateResponseFailureAfter = function() {
+            this.cpmErrors = true;
+
+            var topUnregisteredCardData = $('#card_style').position().top -  $('#top').height();
+            var leftUnregisteredCardData = '110';
+            var allUnregisteredCardData = topUnregisteredCardData + 'px 0 0 ' + leftUnregisteredCardData + 'px';
+            $('#unregisteredCardData').css({
+                'margin' : allUnregisteredCardData,
+                'position' : 'absolute'
+            });
+        };
+
+        UnregisteredCardJsLib.tokenCreateAfterSend = function(data) {
+            $('#tokenOperationStatusInput').val("response=[" + JSON.stringify(data) + "]");
+            $.ajax({
+                type : "POST",
+                data : $("#paymentForm").serialize(),
+                url : $("#paymentForm").attr("action") + "&_eventId=tokenCreateStatus",
+                success : function(response) {
+                    UnregisteredCardJsLib.processTokenCreateResponse(data);
+                },
+                error : function(response) {
+                    UnregisteredCardJsLib.processTokenCreateResponse(data);
+                }
+            });
+        };
+
+        UnregisteredCardJsLib.buildFormSetCss = function() {
+            $('#card_style').css({
+                'min-height' : Math.max(225, $('#card_container').height()) + 'px',
+                'width' : 'auto'
+            });
+
+            $('#cardTopWraper').css({
+                'display' : 'block'
+            });
+
+            $('#card_container').css({
+                'display' : 'block',
+                'margin' : '0 0 0 -79px',
+                'position' : 'absolute',
+                'width' : '575px',
+                'background' : '#F0F0F0'
+            });
+
+            OpenPayU.Builder.createHtmlElement('img', '#normalCardInfoTable', {
+                'src' : cardUrlImg + '/bank/on-c.gif',
+                'id' : 'visa_card_container'
+            });
+            $('#visa_card_container').css({
+                'width' : '80px',
+                'height' : 'auto',
+                'position' : 'absolute',
+                'margin' : '20px 0 0 30px',
+                'background' : 'white',
+                'border' : '1px solid #a6c307',
+                'padding' : '5px',
+                'border-radius' : '5px',
+                '-webkit-border-radius' : '5px',
+                '-moz-border-radius' : '5px'
+            });
+            $('#card-number').css({
+                'width' : '162px',
+                'margin-top' : '0'
+            });
+            $('#card-cvv').css({
+                'width' : '30px',
+                'margin-top' : '0'
+            });
+            $('#card-expm').css({
+                'width' : '40px',
+                'margin-top' : '0'
+            });
+            $('#card-expy').css({
+                'width' : '40px',
+                'margin-top' : '0'
+            });
+        };
+
+        UnregisteredCardJsLib.buildStoredFormSetCss = function() {
+            $('#card_style').css({
+                'min-height' : '50px',
+                'width' : '100%'
+            });
+
+            $('#card_container').css({
+                'display' : 'block',
+                'margin' : '0 0 0 30px',
+                'position' : 'absolute',
+                'width' : '370px',
+                'background' : 'white'
+            });
+        };
+
+        UnregisteredCardJsLib.buildStoredFormShowCardImg = function() {
+            var card_style_img = $('#card_style img').attr('id');
+            this.imgShow(card_style_img);
+        };
+
+        UnregisteredCardJsLib.recalculate = function() {
+            var topUnregisteredCardData = $('#card_style').position().top -  $('#top').height();
+            var leftUnregisteredCardData = '110';
+            var allUnregisteredCardData = topUnregisteredCardData + 'px 0 0 ' + leftUnregisteredCardData + 'px';
+            $('#unregisteredCardData').css({
+                'margin' : allUnregisteredCardData,
+                'position' : 'absolute'
+            });
+        };
+
+        UnregisteredCardJsLib.checkForMethod = function() {
+            var pass = $('.disposableCreditCard input').attr("checked");
+            if (pass == true) {
+                var coll = $('#card_container').css('display');
+                if (coll == 'none') {
+                    var con = $('#card_number_content').html();
+                    var con2 = $('#singleCardInfoTable').length;
+                    var con3 = $('#singleCardInfoTable').css('display');
+                    if (con == '' && con2 == 0) {
+                        return true;
+                    } else {
+                        if (con2 != 0 && con3 != 'none') {
+                            $('#card_style').css({
+                                'min-height' : '50px',
+                                'width' : '100%'
+                            });
+                            $('#card_container').css({
+                                'display' : 'block',
+                                'margin' : '0 0 0 -79px',
+                                'position' : 'absolute',
+                                'width' : '575px'
+                            });
+                            return true;
+                        } else {
+                            var coll3 = $('#error_number_container').css('display');
+                            var coll4 = $('#error_date_container').css('display');
+                            var coll5 = $('#error_cvv_container').css('display');
+                            i = 0;
+                            if (coll3 != 'none') {
+                                i++;
+                            }
+                            if (coll4 != 'none') {
+                                i++;
+                            }
+                            if (coll5 != 'none') {
+                                i++;
+                            }
+                            ile = (i * 30) + 235;
+                            $('#card_style').css({
+                                'min-height' : '' + ile + 'px',
+                                'width' : '100%'
+                            });
+                            $('#card_container').css({
+                                'display' : 'block',
+                                'margin' : '0 0 0 -79px',
+                                'position' : 'absolute',
+                                'width' : '575px'
+                            });
+                        }
+                        return false;
+                    }
+                }
+                return false;
+            }
+            return false;
+        };
+
+        UnregisteredCardJsLib.validateFormAnimationCalculateHeight = function() {
+            var cont = $('#card_style').css('min-height');
+            var height = parseInt(/(\d+)px/.exec(cont)[1]) - 235;
+            return height;
+        };
+
+        UnregisteredCardJsLib.bodyInit = function(options) {
+            if ($('#card_style').length > 0 && $('#unregisteredCardData').length > 0) {
+                var topUnregisteredCardData = $('#card_style').position().top - $('#top').height();
+                var leftUnregisteredCardData = '110';
+                var allUnregisteredCardData = topUnregisteredCardData + 'px 0 0 ' + leftUnregisteredCardData + 'px';
+                $('#unregisteredCardData').css({
+                    'margin' : allUnregisteredCardData,
+                    'position' : 'absolute'
+                });
+            }
+        };
+
+        UnregisteredCardJsLib.createEnableLabelSetCss = function(options) {
+            $('#card-enable-content').css({'position':'absolute','text-align':'center','margin':'20px 0 0 215px','color':'#a6c307','font-weight':'bold','width':'120px'});
+            $('#card-enable-link').css({'cursor':'pointer'});
+        };
+
+        window.UnregisteredCardJsLib = UnregisteredCardJsLib;
+    }(window, jQuery));
+
+    var opyJsUrl = "/pl/standard/co/js/openpayu-2.0.js";
+    var pluginTokenJsUrl = "/pl/standard/co/js/plugin-token.js";
+    var jsonJsUrl = "/pl/standard/co/js/json2.js";
+    var loadCardPass = true;
+
+    if (UnregisteredCardJsLib.checkForMethod() == true && loadCardPass == true) {
+        UnregisteredCardJsLib.init(cpmServerAddress, opyJsUrl, pluginTokenJsUrl, jsonJsUrl);
+        loadCardPass = false;
+    }
+
+    $(document).ready(function() {
+        DeviceFingerprint.init();
+        if (UnregisteredCardJsLib.checkForMethod() == true && loadCardPass == true) {
+            UnregisteredCardJsLib.init(cpmServerAddress, opyJsUrl, pluginTokenJsUrl, jsonJsUrl);
+            loadCardPass = false;
+        }
+
+        $('.disposableCreditCard').click(function() {
+            if (UnregisteredCardJsLib.checkForMethod() == true && loadCardPass == true) {
+                UnregisteredCardJsLib.init(cpmServerAddress, opyJsUrl, pluginTokenJsUrl, jsonJsUrl);
+                loadCardPass = false;
+            }
+
+        });
+
+        $('.singlePaymentMethod cardMethod').click(function() {
+            var pass = $('.disposableCreditCard input').attr("checked");
+            if (pass != false) {
+                
+                $("#HidePesel").show();
+                
+            }
+        });
+
+        $('.singlePaymentMethod ').click(function() {
+            var pass = $('.disposableCreditCard input').attr("checked");
+            if (pass == false) {
+                var coll1 = $('#card_container').css('display');
+                var coll2 = $(this).attr('id');
+                if (coll1 != 'none') {
+                    if (coll2 != 'card_style') {
+                        $('#card_style').css({
+                            'min-height' : '50px'
+                        });
+
+                        $('#card_style img').css({
+                            'z-index' : 'auto'
+                        });
+
+                        $('#card_container').css({
+                            'display' : 'none',
+                            'margin' : '0',
+                            'position' : 'absolute',
+                            'width' : '0'
+                        });
+                        var card_style_img = $('#card_style img').attr('id');
+                        $('#' + card_style_img).attr({
+                            'src' : cardUrlImg + '/bank/on-c.gif'
+                        });
+                        loadCardPass = true;
+                        UnregisteredCardJsLib.clearValidationMessages();
+                    }
+                }
+            }
+        });
+        $('body').change(function() {
+            UnregisteredCardJsLib.bodyInit();
+        });
+        $('body').load(function() {
+            UnregisteredCardJsLib.bodyInit();
+        });
+
+        $("#loadingCardForm").ajaxStart(function() {
+            $(this).show();
+        });
+        $("#loadingCardForm").ajaxComplete(function() {
+            $(this).hide();
+        });
+
+    });
+
+ 	function invokePayProcess() {
+		
+        $("#white_overlay").show();
+        var cardValid = !UnregisteredCardJsLib.checkProcess() || UnregisteredCardJsLib.validateForm();
+        var formValid = validatePaymentForm();
+
+        var checkedProcess = UnregisteredCardJsLib.checkProcess();
+        if (checkedProcess) {
+            cardWasValidated = true;
+        }
+
+        formWasValidated = true;
+
+		addGoogleAnalyticsActionSync('/pl/standard/co/summary/button_pay', 
+			function(){
+				if (cardValid && formValid) {
+					addGoogleAnalyticsActionSync('/pl/standard/co/summary/summary_sent', function() {
+						if (checkedProcess) {
+							UnregisteredCardJsLib.tokenCreate();
+						} else {
+							$('#actionForm').click();
+						}
+					});
+				} else {
+					$("#white_overlay").hide();
+				}
+		});
+    };
+//]]>
+</script>
+
+
+
+</div><ul style="display: none; -moz-user-select: none;" class="selectBox-dropdown-menu selectBox-options"><li class="selectBox-selected"><a rel="pl">PL</a></li><li><a rel="en">EN</a></li><li><a rel="cs">CZ</a></li><li><a rel="de">DE</a></li></ul></body></html>

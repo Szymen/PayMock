@@ -13,16 +13,20 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 from PayMock import views
 
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^pay', views.payU),
-    url(r'^index', views.index),
-    url(r'^own', views.payment_agreement)
 
-]
+    url(r'^admin', admin.site.urls, name = 'admin_panel'),
+    url(r'^index', views.index, name='index'),
+    url(r'^own', views.payment_agreement, name='payment_agreement'),
+                  url(r'^$', views.OverView.as_view(), name='overview')
+
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,0 +1,10 @@
+#popup_container {font-family: Arial, sans-serif;font-size: 12px;min-width: 300px; max-width: 600px; background: #FFF;border: solid 2px #009EE0;color: #000;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px}
+#popup_title {font-size: 14px;font-weight: bold;text-align: center;line-height: 1.75em;color: #666;background: #CCC url(../images/alerts-title.3929e16d396d93639dce4785454fd252.gif) top repeat-x;border: solid 1px #FFF;border-bottom: solid 1px #999;cursor: default;padding: 0em;margin: 0em}
+#popup_content {background: 16px 16px no-repeat url(../images/alerts-info.3929e16d396d93639dce4785454fd252.gif);padding: 1em 1.75em;margin: 0em}
+#popup_content.alert {background-image: url(../images/alerts-info.3929e16d396d93639dce4785454fd252.gif)}
+#popup_content.confirm {background-image: url(../images/alerts-important.3929e16d396d93639dce4785454fd252.gif)}
+#popup_content.prompt {background-image: url(../images/alerts-help.3929e16d396d93639dce4785454fd252.gif)}
+#popup_message {padding-left: 48px}
+#popup_panel {text-align: center;margin: 1em 0em 0em 1em}
+#popup_prompt {margin: .5em 0em}
+#popup_overlay{background:#fff !important;opacity:0.7 !important;filter:alpha(opacity=60);-moz-opacity:0.6}
