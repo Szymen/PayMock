@@ -1,6 +1,10 @@
+import json
+
 from django.shortcuts import render, render_to_response
 from django.shortcuts import HttpResponse
 from django.views.generic import TemplateView
+from django.views.decorators.csrf import csrf_exempt
+
 
 # Create your views here.
 
@@ -32,10 +36,19 @@ def payment_agreement(request):
     return render_to_response("payment_agreement.html", data)
 
 
-def order(request):
+@csrf_exempt  # we should give everybody a chance to get one.
+def get_token(request):
+    print(request.body)
 
-    if request.method != 'POST': #it should be post
-        return HttpResponse("FALSHE RICHTUNG!", 418)
+    if request.method != 'POST': # it should be post
+        return HttpResponse("FALSCHE RICHTUNG!", 418)
 
-    else:
-        return HttpResponse("BRAWO!")
+    else:  # means method is POST
+        response = {
+            "access_token": "8f79c971-195e-43f5-bd83-ad2104414acc",
+            "token_type": "bearer",
+            "expires_in": 43199,
+            "grant_type": "client_credentials"
+            }
+
+        return HttpResponse(json.dumps(response))
