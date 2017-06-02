@@ -1,6 +1,7 @@
 from django.shortcuts import render, render_to_response
 from django.shortcuts import HttpResponse
 from django.views.generic import TemplateView
+import json
 
 # Create your views here.
 
@@ -31,3 +32,9 @@ def order(request):
 
     else:
         return HttpResponse("BRAWO!")
+
+def getToken(request):
+    if request.method == 'POST':
+        grant_type = request.POST.get("grant_type")
+        client_id = request.POST.get("client_id")
+        client_secret = request.POST.get("client_secret")
