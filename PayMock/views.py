@@ -14,6 +14,7 @@ class OverView(TemplateView):
 
 
 def over_view(request):
+
     return render(request, "overview.html")
 
 
@@ -35,13 +36,27 @@ def payment_agreement(request):
 
     return render_to_response("payment_agreement.html", data)
 
+""""
+    # print (request.META)
+    try:
+        authorization = request.META["HTTP_AUTHORIZATION"]
+    except KeyError:
+        try:
+            authorization = request.META["HTTPS_AUTHORIZATION"]
+        except KeyError:
+            return HttpResponse("SEHR FALSCHE RICHTUNG !", 418)  # TODO: Find correct error number
+
+    print("authorizacjone:"+authorization)
+
+    # print(request.body)
+"""
+
 
 @csrf_exempt  # we should give everybody a chance to get one.
 def get_token(request):
-    print(request.body)
 
-    if request.method != 'POST': # it should be post
-        return HttpResponse("FALSCHE RICHTUNG!", 418)
+    if request.method != 'POST':  # it should be post
+        return HttpResponse("FALSCHE RICHTUNG!", 418)  # TODO: Find correct error number
 
     else:  # means method is POST
         response = {
