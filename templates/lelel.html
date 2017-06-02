@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{ elements_list }}
+
+<table>
+            <thead>
+            <tr>
+                <td class="firstCol">L.p.</td>
+                <td class="secondCol">Nazwa (liczba)</td>
+                <td class="thirdCol">Kwota</td>
+            </tr>
+            </thead>
+             <tbody>
+                {% for element in elements_list %}
+
+
+                        <tr class="{% cycle 'oddRow' 'lastRow' %}">
+                            <td class="firstCol">{{ forloop.counter }}</td>
+                            <td class="secondCol">
+                                    {{ element.name }}
+                            </td>
+                            <td class="thirdCol">{{ element.cost }} {{ element.currency }}</td>
+                        </tr>
+
+                 {% endfor %}
+
+            <tr class="lastRow">
+                <td class="firstCol"></td>
+                <td class="secondCol alignRight"><strong>Suma</strong></td>
+                <td class="thirdCol red" id="totalSummaryAmount">
+                    {{ suma }} {{ elements_list.first.currency }}
+                </td>
+            </tr>
+            </tbody>
+</table>
+
+
+
+
+</body>
+</html>

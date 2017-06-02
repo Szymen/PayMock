@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 
-from django.conf.urls import url, include
+from django.conf.urls import url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
@@ -28,7 +28,6 @@ urlpatterns = [
     url(r'^admin', admin.site.urls, name = 'admin_panel'),
     url(r'^index', views.index, name='index'),
     url(r'^own', views.payment_agreement, name='payment_agreement'),
-    url(r'^$', views.OverView.as_view(), name='overview'),
-    url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+    url(r'^$', views.OverView.as_view(), name='overview')
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
