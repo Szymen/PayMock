@@ -1,12 +1,16 @@
 from django.shortcuts import render, render_to_response
 from django.shortcuts import HttpResponse
 from django.views.generic import TemplateView
-import json
+
 # Create your views here.
 
 
 class OverView(TemplateView):
     template_name = "overview.html"
+
+
+def over_view(request):
+    return render(request, "overview.html")
 
 
 def index(request):
@@ -19,7 +23,7 @@ def payment_agreement(request):
     b = {"name": "bb", "cost": "20", "currency": "EURO"}
     c = {"name": "cc", "cost": "32", "currency": "PESOS"}
     suma = 103
-    elements_list = [a, b, c]
+
     data = {
         "elements_list": [a, b, c],
         "suma" : 103

@@ -205,7 +205,8 @@
                     <option value="cs">CZ</option>
                     <option value="de">DE</option>
 				</select><a tabindex="0" title="" style="display: inline-block; -moz-user-select: none;" class="selectBox styled selectBox-dropdown"><span class="selectBox-label"><cufon style="width: 18px; height: 16px;" alt="PL" class="cufon cufon-canvas"><canvas style="width: 26px; height: 18px; top: -2px; left: -1px;" height="18" width="26"></canvas><cufontext>PL</cufontext></cufon></span><span class="selectBox-arrow"></span></a>
-			<input name="csrf392adbafcc9248cca674acf6fc100393" value="aad3dc772df443a79e34ffa0d4ff960e" type="hidden">
+			<!-- <input name="csrf392adbafcc9248cca674acf6fc100393" value="aad3dc772df443a79e34ffa0d4ff960e" type="hidden"> -->
+                {% csrf_token %}
 </form>
 		</li>
 		
@@ -250,7 +251,9 @@ function changeLang(langForm)
             <div>
                 <input class="button-medium button-login" id="userLoginButton" name="_eventId_userLogin" onclick="$('#loginForm').validate().form() ? $('#white_overlay').show() : event.stopPropagation()" value="Zaloguj" type="submit">
             </div>
-        <input name="csrf1345580fe27340f5a0ebc6034c6e08ec" value="fac14b9e9c7543d5a0d9ecb7d02908e0" type="hidden">
+        <!-- <input name="csrf1345580fe27340f5a0ebc6034c6e08ec" value="fac14b9e9c7543d5a0d9ecb7d02908e0" type="hidden"> -->
+                      {% csrf_token %}
+
 </form>
         <div class="buttonDesc cufon"><cufon style="width: 34px; height: 10px;" alt="Zapłać " class="cufon cufon-canvas"><canvas style="width: 42px; height: 12px; top: -1px; left: -1px;" height="12" width="42"></canvas><cufontext>Zapłać </cufontext></cufon><cufon style="width: 38px; height: 10px;" alt="kontem " class="cufon cufon-canvas"><canvas style="width: 46px; height: 12px; top: -1px; left: -1px;" height="12" width="46"></canvas><cufontext>kontem </cufontext></cufon><cufon style="width: 27px; height: 10px;" alt="PayU " class="cufon cufon-canvas"><canvas style="width: 35px; height: 12px; top: -1px; left: -1px;" height="12" width="35"></canvas><cufontext>PayU </cufontext></cufon><cufon style="width: 11px; height: 10px;" alt="w " class="cufon cufon-canvas"><canvas style="width: 19px; height: 12px; top: -1px; left: -1px;" height="12" width="19"></canvas><cufontext>w </cufontext></cufon><cufon style="width: 9px; height: 10px;" alt="9 " class="cufon cufon-canvas"><canvas style="width: 17px; height: 12px; top: -1px; left: -1px;" height="12" width="17"></canvas><cufontext>9 </cufontext></cufon><cufon style="width: 34px; height: 10px;" alt="sekund" class="cufon cufon-canvas"><canvas style="width: 39px; height: 12px; top: -1px; left: -1px;" height="12" width="39"></canvas><cufontext>sekund</cufontext></cufon></div>
     </div>
@@ -292,8 +295,10 @@ function changeLang(langForm)
         </div>
         
     </div></div>
-<form id="paymentForm" class="valid" action="/pl/standard/co/summary?execution=e1s1&amp;" method="post">
-<input id="country_code_submit" style="display:none;" name="_eventId_refreshSummary" type="submit">
+<!--<form id="paymentForm" class="valid" action="/pl/standard/co/summary?execution=e1s1&amp;" method="post"> -->
+<form id="paymentForm" class="valid" action="http://127.0.0.1:8000/" method="post"> -->
+
+    <input id="country_code_submit" style="display:none;" name="_eventId_refreshSummary" type="submit">
 <div id="content">
 <div class="contentTopGra"></div>
 <div class="contentInnerSPage">
@@ -343,16 +348,6 @@ function changeLang(langForm)
 
     </div>
     
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1813,8 +1808,8 @@ function changeLang(langForm)
 </div>
 
 <input id="hasUserPesel" name="hasUserPesel" value="false" type="hidden">
-
-<input name="csrff3953a5f42d8453eb9a0a8bc592583ff" value="fe8ac359ff41415a923f5d8c093eea7b" type="hidden">
+{% csrf_token %}
+<!-- <input name="csrff3953a5f42d8453eb9a0a8bc592583ff" value="fe8ac359ff41415a923f5d8c093eea7b" type="hidden"> -->
 </form>
 
     
