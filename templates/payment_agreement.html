@@ -309,7 +309,7 @@ function changeLang(langForm)
     <div class="cartLeftTop">
         <h3 class="cufon blue"><cufon style="width: 45px; height: 16px;" alt="Twoje " class="cufon cufon-canvas"><canvas style="width: 57px; height: 18px; top: -2px; left: -1px;" height="18" width="57"></canvas><cufontext>Twoje </cufontext></cufon><cufon style="width: 84px; height: 16px;" alt="zamówienie" class="cufon cufon-canvas"><canvas style="width: 92px; height: 18px; top: -2px; left: -1px;" height="18" width="92"></canvas><cufontext>zamówienie</cufontext></cufon></h3>
 
-        <table>
+<table>
             <thead>
             <tr>
                 <td class="firstCol">L.p.</td>
@@ -317,37 +317,30 @@ function changeLang(langForm)
                 <td class="thirdCol">Kwota</td>
             </tr>
             </thead>
-            <tbody>
-            
-            
-                
-                
-                    
-                        <tr class="oddRow">
-                            <td class="firstCol">1</td>
+             <tbody>
+                {% for element in elements_list %}
+
+
+                        <tr class="{% cycle 'oddRow' 'lastRow' %}">
+                            <td class="firstCol">{{ forloop.counter }}</td>
                             <td class="secondCol">
-                                    Product 1 
+                                    {{ element.name }}
                             </td>
-                            <td class="thirdCol">10,00 PLN</td>
+                            <td class="thirdCol">{{ element.cost }} {{ element.currency }}</td>
                         </tr>
-                        
-                    
-                
-            
-            
-            
-            
-            
-            
+
+                 {% endfor %}
+
             <tr class="lastRow">
                 <td class="firstCol"></td>
                 <td class="secondCol alignRight"><strong>Suma</strong></td>
                 <td class="thirdCol red" id="totalSummaryAmount">
-                    10,00 PLN
+                    {{ suma }} {{ elements_list.first.currency }}
                 </td>
             </tr>
             </tbody>
-        </table>
+</table>
+
     </div>
     
 

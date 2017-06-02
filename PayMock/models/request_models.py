@@ -5,25 +5,25 @@ from django.db import models
 
 class OrderCreateRequest(models.Model):
     def __init__(self):
-        pass
+        self.records ={}
 
 
 class OrderStatusUpdateRequest(models.Model):
     def __init__(self):
-        pass
+        self.records ={}
 
 
 class RefundCreateRequest(models.Model):
     def __init__(self):
-        pass
+        self.records ={}
 
 
 class OrderCancelRequest(models.Model):
     def __init__(self):
-        pass
+        self.records ={}
 
 
 class OrderRetrieveRequest(models.Model):
     def __init__(self):
-        pass
+        self.records ={}
 
