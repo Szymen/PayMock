@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b1d116f-f142-4403-a3fe-5c8d4ea1a8b5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/agree.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/thanksman.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PayMock/views.py" afterPath="$PROJECT_DIR$/PayMock/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PaymentMockup/urls.py" afterPath="$PROJECT_DIR$/PaymentMockup/urls.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -675,7 +671,14 @@
       <option name="project" value="LOCAL" />
       <updated>1496626438642</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Nowe strony">
+      <created>1496626487909</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1496626487909</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
