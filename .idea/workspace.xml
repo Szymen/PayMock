@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b1d116f-f142-4403-a3fe-5c8d4ea1a8b5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -678,7 +677,14 @@
       <option name="project" value="LOCAL" />
       <updated>1496626487909</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Chyba poszło">
+      <created>1496626614878</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1496626614878</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -718,7 +724,8 @@
     <MESSAGE value="Added own Payment Agreement page." />
     <MESSAGE value="Own payment agreement page loads properly" />
     <MESSAGE value="Nowe strony" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nowe strony" />
+    <MESSAGE value="Chyba poszło" />
+    <option name="LAST_COMMIT_MESSAGE" value="Chyba poszło" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
