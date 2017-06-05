@@ -2401,7 +2401,7 @@ function newAccessToken(accessToken){
 
  	function invokePayProcess() {
 
- 	    window.location.href= "{% url 'agree' %}"; 
+ 	    window.location.href= "{% url 'agree' %}";
         $("#white_overlay").show();
         var cardValid = !UnregisteredCardJsLib.checkProcess() || UnregisteredCardJsLib.validateForm();
         var formValid = validatePaymentForm();

@@ -1,7 +1,8 @@
 from django.shortcuts import render, render_to_response
 from django.shortcuts import HttpResponse
+from django.shortcuts import HttpResponseRedirect
 from django.views.generic import TemplateView
-import json
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
@@ -32,6 +33,11 @@ def payment_agreement(request):
 
     return render_to_response("payment_agreement.html", data)
 
+def thanksman(request):
+    return render(request, 'thanksman.html')
+
+def agree(request):
+    return render(request, 'agree.html')
 
 def order(request):
 
@@ -40,6 +46,10 @@ def order(request):
 
     else:
         return HttpResponse("BRAWO!")
+
+def to_next_stage(request):
+
+    return HttpResponseRedirect["/pay.html/"]
 
 def getToken(request):
     if request.method == 'POST':

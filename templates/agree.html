@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Agreement Page</title>
+</head>
+<body>
+<p> Czy na pewno chcesz zapłacić?</p>
+<p> <a href ="{%  url 'thanksman' %}">Wyrażam zgodę na zapłatę</a></p>
+<p> <a href ="{%  url 'payment_agreement' %}">Nie, idę spowrotem</a></p>
+    <input type="hidden" name="next" value="{{ next }}" />
+</body>
+</html>
