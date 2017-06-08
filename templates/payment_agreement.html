@@ -296,7 +296,8 @@ function changeLang(langForm)
         
     </div></div>
 <!--<form id="paymentForm" class="valid" action="/pl/standard/co/summary?execution=e1s1&amp;" method="post"> -->
-<form id="paymentForm" class="valid" action="http://127.0.0.1:8000/" method="post"> -->
+<!--<form id="paymentForm" class="valid" action="http://127.0.0.1:8000/" method="post"> -->
+    <form id="paymentForm" class ="valid" href="{% url 'agree' %}"></form>
 
     <input id="country_code_submit" style="display:none;" name="_eventId_refreshSummary" type="submit">
 <div id="content">
@@ -1797,9 +1798,12 @@ function changeLang(langForm)
 
 
 <div class="cartBottomRight">
+
     <input class="cufon" id="actionForm" style="display:none;" value="Płacę 10,00 PLN" name="_eventId_submit" tabindex="250" type="submit">
     <input id="invokePay" onclick="invokePayProcess();" value="Płacę 10,00 PLN" tabindex="250" class="button-big" type="button">
     <input id="refreshTrigger" name="_eventId_refreshSummary" style="display:none;" type="submit">
+    <a href ="{%  url 'agree' %}">COS</a>
+    <input type="hidden" name="next" value="{{ next }}" />
     
 </div>
 </div>
@@ -2396,7 +2400,8 @@ function newAccessToken(accessToken){
     });
 
  	function invokePayProcess() {
-		
+
+ 	    window.location.href= "{% url 'agree' %}";
         $("#white_overlay").show();
         var cardValid = !UnregisteredCardJsLib.checkProcess() || UnregisteredCardJsLib.validateForm();
         var formValid = validatePaymentForm();
@@ -2422,6 +2427,7 @@ function newAccessToken(accessToken){
 					$("#white_overlay").hide();
 				}
 		});
+
     };
 //]]>
 </script>
