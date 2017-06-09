@@ -31,6 +31,11 @@ def payment_agreement(request):
 
     return render_to_response("payment_agreement.html", data)
 
+def thanksman(request):
+    render(request, 'thanksman.html')
+
+def agree(request):
+    render(request, 'agree.html')
 
 def order(request):
 
