@@ -23,13 +23,14 @@ from PayMock import views
 
 
 urlpatterns = [
-
     url(r'^api/v0_1/orders', views.get_token, name = 'get_token'),
-    url(r'^admin', admin.site.urls, name = 'admin_panel'),
-    url(r'^index', views.index, name='index'),
+
     url(r'^own', views.payment_agreement, name='payment_agreement'),
-    url(r'^$', views.OverView.as_view(), name='overview'),
-    url(r'^ty', views.thanksman, name='thanksman'),
-    url(r'^panda', views.agree, name='agree'),
+
+
+    url(r'^thanks_page', views.thanks_page, name='thanks_page'),
+    url(r'^agree_at_bank', views.agree_at_bank, name='agree_at_bank'),
+    url(r'^admin', admin.site.urls, name='admin_panel'),
+    url(r'^(\/|index|)?$', views.OverView.as_view(), name='overview'), # needs to stay at the end
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

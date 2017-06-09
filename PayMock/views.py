@@ -2,8 +2,6 @@ from django.shortcuts import render, render_to_response
 from django.shortcuts import HttpResponse
 from django.views.generic import TemplateView
 
-# Create your views here.
-
 
 class OverView(TemplateView):
     template_name = "overview.html"
@@ -31,11 +29,16 @@ def payment_agreement(request):
 
     return render_to_response("payment_agreement.html", data)
 
-def thanksman(request):
-    render(request, 'thanksman.html')
 
-def agree(request):
-    render(request, 'agree.html')
+def thanks_page(request):
+    resp = render(request, 'thanks_page.html')
+    return HttpResponse(resp)
+
+
+def agree_at_bank(request):
+    resp = render(request, 'agree_at_bank.html')
+    return HttpResponse(resp)
+
 
 def order(request):
 
@@ -44,3 +47,8 @@ def order(request):
 
     else:
         return HttpResponse("BRAWO!")
+
+
+def get_token(request):
+    resp = "TOKEN"
+    return HttpResponse(resp)
