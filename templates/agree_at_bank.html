@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+
     <meta charset="UTF-8">
     <title>Agreement Page</title>
 </head>
-<body>
+<body >
+<div align="center">
+<h2> Bank Baaz Qux </h2>
 <p> Czy na pewno chcesz zapłacić?</p>
-<p> <a href ="{%  url 'thanks_page' %}">Wyrażam zgodę na zapłatę</a></p>
-<p> <a href ="{%  url 'payment_agreement' %}">Nie, idę spowrotem</a></p>
+
+<form action="{%  url 'thanks_page' %}" method="get">
+    <input type="submit" value="Wyrażam zgodę na zapłatę"
+         name="Submit" id="accept_payment" />
+</form>
+
+<form action="{%  url 'payment_agreement' %}" method="get">
+    <input type="submit" value="Powróć na stronę PayMock"
+         name="Submit" id="cancel_payment" />
+</form>
+
     <input type="hidden" name="next" value="{{ next }}" />
+</div>
 </body>
 </html>
+

@@ -17,14 +17,14 @@ def index(request):
 
 
 def payment_agreement(request):
-    a = {"name": "aa", "cost": "10", "currency": "PLN"}
-    b = {"name": "bb", "cost": "20", "currency": "EURO"}
-    c = {"name": "cc", "cost": "32", "currency": "PESOS"}
-    suma = 103
+    a = {"name": "Bilet wstępu: Zawody w strzelaniu stojąc bokiem", "cost": "100", "currency": "PLN"}
+    b = {"name": "Wypożyczenie sprzętu ochronnego", "cost": "200", "currency": "PLN"}
+    c = {"name": "Opłata na ubezpieczenie", "cost": "12", "currency": "PLN"}
+    suma = 312
 
     data = {
         "elements_list": [a, b, c],
-        "suma" : 103
+        "suma" : suma
     }
 
     return render_to_response("payment_agreement.html", data)
