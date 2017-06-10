@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -19,6 +20,9 @@
             padding-left: 200px;
             padding-right: 200px;
             padding-bottom: 400px;
+            text-align: center;
+
+
         }
         body
         {
@@ -43,14 +47,17 @@
 <body>
 <div class="container">
     <div class="forheader">
-        <img src="dmtg.jpg" id="Logo" alt="Miejsce na logo">
+        <img src="{% static "dmtg.jpg" %}" id="Logo" alt="Miejsce na logo">
         <span id="websiteTitle">Bank Baaz Qux</span>
         <!--<h1>Bank Baaz Qux </h1> -->
     </div>
 </div>
 <div class= "container">
     <div class="jumbotron">
-    <p> Czy na pewno chcesz zapłacić?</p>
+    <h2> Czy na pewno chcesz zapłacić?</h2>
+    <br />
+    <br />
+
 
     <p><form action="{%  url 'thanks_page' %}" method="get">
         <input type="submit" value="Wyrażam zgodę na zapłatę"

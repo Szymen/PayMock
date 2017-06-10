@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -12,15 +13,26 @@
         .forheader
         {
             background-color: greenyellow;
-            padding-bottom: 280px;
+            padding-bottom: 680px;
+            padding-top: 80px;
+            font-family: "Arial"
 
         }
-        span {
+        span
+        {
             display: inline-block;
             vertical-align: middle;
             line-height: normal;
         }
-        #websiteTitle {
+        #Logo
+        {
+            padding-left: 15px;
+            width: auto;
+            height: auto;
+            text-align: left;
+        }
+        #websiteTitle
+        {
             font-size: 10em;
             padding-left: 50px;
             color: #191970;
@@ -30,8 +42,10 @@
 <body>
     <div class=" container" align="center">
         <div class = forheader>
+        <img style="float: left; margin: 0px 15px 15px 0px;" src="{% static "cos.jpg" %}" id="Logo" alt="Miejsce na logo">
+
         <span id="websiteTitle"><h1>PayMock System </h1></span>
-        <p>Transakcja zakończona sukcesem. Dziękujemy!</p>
+        <h2>Transakcja zakończona sukcesem. Dziękujemy!</h2>
         </div>
     </div>
 </body>
